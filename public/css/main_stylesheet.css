@@ -1,5 +1,5 @@
 body {
-  margin: 46.8px 0 0 0;
+  margin: 45.8px 0 0 0;
 }
 
 .fixedbar {
@@ -79,12 +79,9 @@ body {
 }
 
 .logo {
-  color: white;
-  text-align: center;
-  font-family: impact;
-  font-size: 30px;
-  margin: 5px 0 5px 25px;
-  text-decoration: none;
+  margin: 11px 0 5px 18px;
+  width: 91.5px;
+  height:24px;
 }
 
 h3 {
