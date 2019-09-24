@@ -78,6 +78,30 @@ body {
   float: left;
 }
 
+.hide {
+  display: none;
+}
+
+.navbar-user {
+  float:right;
+  margin:8px 15px 0 0;
+}
+
+.login_pic-nav {
+  float: right;
+  margin: 8px 15px 0 0;
+}
+
+.login-nav {
+  float: right;
+  margin: 12px 15px 0 0;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
 .logo {
   margin: 11px 0 5px 18px;
   width: 91.5px;
