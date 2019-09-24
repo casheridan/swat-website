@@ -10,12 +10,19 @@
       <title>S.W.A.T. 1806 | Home</title>
     </head>
     <body>
-        <div class="fixedbar">
-          <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
-          <a href="#" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
-          <a href="login.html" style="float:right;margin:8px 15px 0 0"><img src="pictures/login-512.png" height="30px" width="30px"></a>
-          <a href="login.html" style="float:right;margin:12px 15px 0 0;font-weight:bold;" class="navbarthings">Login</a>
-        </div>
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="home.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <a href="login.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="login.html">Login</a>
+      </div>
 
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -152,4 +159,7 @@
         dots[slideIndex-1].className += " active";
       }
     </script>
+
+    <script src="js/firebase_config.js"></script>
+    <script src="js/auth_check.js"></script>
   </html>
