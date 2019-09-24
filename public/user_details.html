@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="css/main_stylesheet.css">
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
-      <title>S.W.A.T. 1806 | Login</title>
+      <title>S.W.A.T. 1806 | User Profile</title>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -16,44 +16,33 @@
       <!-- Add Firebase products that you want to use -->
       <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
 
-        <div class="fixedbar">
-          <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
-          <a href="home.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
-          <a href="#" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
-          <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
-          <a class="login-nav" id="login-nav" href="#">Login</a>
-        </div>
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="home.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <a href="login.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="login.html">Login</a>
+      </div>
 
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="home.html">Home</a>
           <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
-          <a href="#">Media</a>
+          <a href="media.html">Media</a>
           <a href="sponsors.html">Sponsors</a>
           <a href="robots.html">Robots</a>
           <a href="scouting.html">Scouting</a>
           <a href="newsletters.html">Newsletters</a>
         </div>
 
-        <div class="outside_div">
-          <form class="login-box">
-            <p class="login-p">Email:</p>
-            <input class="P-E_inputs" type="email" name="email" placeholder="Enter email" id="email"><br>
-            <p class="login-p">Password:</p>
-            <input class="P-E_inputs" type="password" name="password" placeholder="Enter password" id="password"><br>
-            <br>
-            <br>
-            <button type="button" id="btnLogin">Login</button>
-            <br>
-            <br>
-            <button type="button" id="btnSignUp">Create User</button>
-            <br>
-            <br>
-            <button type="button" id="btnLogOut" class="hide">Sign Out</button>
-            <br>
-            <br>
-          </form>
-        </div>
+        <form>
+          <h3>Name: <h3 id="name"></h3></h3>
+          <br>
+          <p class="login-p">Change Name: </p>
+          <input type="name" id="nameInput" style="display:block;margin:0 auto;">
+          <br>
+          <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
+        </form>
 
         <br/>
         <br/>
@@ -75,5 +64,6 @@
       </script>
 
       <script src="js/firebase_config.js"></script>
-      <script src="js/login-system.js"></script>
+      <script src="js/auth_check.js"></script>
+      <script src="js/get_userinfo.js"></script>
     </html>
