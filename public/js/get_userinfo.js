@@ -8,13 +8,16 @@ firebase.auth().onAuthStateChanged(user=>{
     emailVerified = user.emailVerified;
     console.log(emailVerified);
 
+    document.getElementById("sendVerifyEmail").classList.add('hide');
     document.getElementById("name").innerHTML = name;
     document.getElementById("email").innerHTML = email;
     if (emailVerified == true) {
       document.getElementById("verification").innerHTML = "Verified";
+      document.getElementById("sendVerifyEmail").classList.add('hide');
     }
     else {
       document.getElementById("verification").innerHTML = "Email not Verified!";
+      document.getElementById("sendVerifyEmail").classList.remove('hide');
     }
   }
   else{
@@ -57,3 +60,12 @@ firebase.auth().onAuthStateChanged(user=>{
     console.log('logged out');
     window.location.href = 'home.html';
   })
+
+  function sendVerificationEmail() {
+    var user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function() {
+      console.log("Email Sent to: " + user.displayName);
+    }).catch(function(error) {
+      console.log(error.message);
+    });
+  }
