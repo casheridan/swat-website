@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="css/main_stylesheet.css">
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
-      <title>S.W.A.T. 1806 | Blank</title>
+      <title>S.W.A.T. 1806 | User Profile</title>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -20,7 +20,8 @@
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
         <a href="home.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
         <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
-        <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px" id="btnLogOut" />
+        <a href="login.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
         <a class="login-nav" id="login-nav" href="login.html">Login</a>
       </div>
 
@@ -35,7 +36,20 @@
           <a href="newsletters.html">Newsletters</a>
         </div>
 
-        <p>This is a blank template page</p>
+        <form>
+          <h3>Name: <h3 id="name"></h3></h3>
+          <p class="login-p">Change Name: </p>
+          <input type="name" id="nameInput" style="display:block;margin:0 auto;">
+          <br>
+          <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
+          <br>
+          <h3>Email: <h3 id="email"></h3><h3 id="verification"></h3></h3>
+          <p class="login-p">Change Email: </p>
+          <input type="name" id="emailInput" style="display:block;margin:0 auto;">
+          <br>
+          <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Email</button>
+
+        </form>
 
         <br/>
         <br/>
@@ -57,5 +71,5 @@
       </script>
 
       <script src="js/firebase_config.js"></script>
-      <script src="js/auth_check.js"></script>
+      <script src="js/get_userinfo.js"></script>
     </html>

@@ -29,6 +29,7 @@ firebase.auth().onAuthStateChanged(user=>{
     document.getElementById("navbar-user").classList.remove('hide')
     document.getElementById("login_pic-nav").classList.add('hide')
     document.getElementById("login-nav").classList.add('hide')
+    window.location.href = 'home.html'
   } else{
     document.getElementById("btnLogOut").classList.add('hide')
     document.getElementById("navbar-user").classList.add('hide')
