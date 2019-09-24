@@ -6,10 +6,18 @@ firebase.auth().onAuthStateChanged(user=>{
     name = user.displayName;
     email = user.email;
     emailVerified = user.emailVerified;
+    console.log(emailVerified);
 
     document.getElementById("name").innerHTML = name;
-    console.log("Name: " + name);
-  } else{
+    document.getElementById("email").innerHTML = email;
+    if (emailVerified == true) {
+      document.getElementById("verification").innerHTML = "Verified";
+    }
+    else {
+      document.getElementById("verification").innerHTML = "Email not Verified!";
+    }
+  }
+  else{
     console.log("Not logged in.");
   }
 })
@@ -21,10 +29,31 @@ document.getElementById("btnUpdate").addEventListener('click', e=>{
 function updateUserProfile() {
       var userNow = firebase.auth().currentUser;
         userNow.updateProfile({
-        displayName: document.getElementById("nameInput").value
+        displayName: document.getElementById("nameInput").value,
+        email: document.getElementById("emailInput").value
       }).then(function() {
         var displayName = userNow.displayName;
       }, function(error) {
 
       });
   }
+
+firebase.auth().onAuthStateChanged(user=>{
+    if(user){
+      document.getElementById("btnLogOut").classList.remove('hide')
+      document.getElementById("navbar-user").classList.remove('hide')
+      document.getElementById("login_pic-nav").classList.add('hide')
+      document.getElementById("login-nav").classList.add('hide')
+    } else{
+      document.getElementById("btnLogOut").classList.add('hide')
+      document.getElementById("navbar-user").classList.add('hide')
+      document.getElementById("login_pic-nav").classList.remove('hide')
+      document.getElementById("login-nav").classList.remove('hide')
+    }
+  })
+
+  document.getElementById("btnLogOut").addEventListener('click', e=>{
+    firebase.auth().signOut();
+    console.log('logged out');
+    window.location.href = 'home.html';
+  })
