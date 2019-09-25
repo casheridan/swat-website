@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(user=>{
 
     document.getElementById("sendVerifyEmail").classList.add('hide');
     document.getElementById("name").value = name;
-    document.getElementById("email").innerHTML = email;
+    document.getElementById("email").value = email;
     if (emailVerified == true) {
       document.getElementById("verification1").classList.add('hide');
       document.getElementById("verification2").classList.remove('hide');
