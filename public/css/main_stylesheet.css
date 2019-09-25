@@ -295,6 +295,44 @@ input[type=email], input[type=password], select {
   box-sizing: border-box;
 }
 
+.ok {
+  height: 20px;
+  width: 20px;
+}
+
+.x-mark {
+  height: 20px;
+  width: 20px;
+}
+
+.bruh {
+  display: block;
+  font-family: sans-serif;
+  font-size: 25px;
+  margin: 0 auto;
+}
+
+.verifyEmail {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+input[type=custom] {
+  width: 20%;
+  text-align: center;
+  padding: 25px 5px;
+  margin: 8px 0px;
+  font-size: 25px;
+  font-family: sans-serif;
+  display: inline-block;
+  border: 0px solid;
+  box-sizing: border-box;
+}
+
 button {
   width: 100%;
   background-color: #4CAF50;

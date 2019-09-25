@@ -6,17 +6,18 @@ firebase.auth().onAuthStateChanged(user=>{
     name = user.displayName;
     email = user.email;
     emailVerified = user.emailVerified;
-    console.log(emailVerified);
 
     document.getElementById("sendVerifyEmail").classList.add('hide');
-    document.getElementById("name").innerHTML = name;
+    document.getElementById("name").value = name;
     document.getElementById("email").innerHTML = email;
     if (emailVerified == true) {
-      document.getElementById("verification").innerHTML = "Verified";
+      document.getElementById("verification1").classList.add('hide');
+      document.getElementById("verification2").classList.remove('hide');
       document.getElementById("sendVerifyEmail").classList.add('hide');
     }
     else {
-      document.getElementById("verification").innerHTML = "Email not Verified!";
+      document.getElementById("verification1").classList.remove('hide');
+      document.getElementById("verification2").classList.add('hide');
       document.getElementById("sendVerifyEmail").classList.remove('hide');
     }
   }
