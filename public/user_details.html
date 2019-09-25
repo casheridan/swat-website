@@ -51,7 +51,7 @@
           <br>
           <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
           <br>
-          <h3>Email: 
+          <h3>Email:
             <input readonly type="custom" name="email" id="email">
             <img src="pictures/x-mark-3-512.png" id="verification1" class="ok"><img src="pictures/ok-512.png" id="verification2" class="x-mark">
           </h3>
@@ -93,11 +93,18 @@
       </script>
 
       <script>
-        var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date+' '+time;
-        document.getElementById("time").value = dateTime;
+        function updateClock() {
+          var today = new Date();
+          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+          var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+          var dateTime = date+' '+time;
+          document.getElementById("time").value = dateTime;
+
+          // call this function again in 1000ms
+          setTimeout(updateClock, 1000);
+        }
+
+        updateClock();
 
         function clockedIn() {
           document.getElementById("clocked").value = "Clocked In";
