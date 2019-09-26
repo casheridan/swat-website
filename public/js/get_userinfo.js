@@ -40,6 +40,7 @@ function updateUserProfile() {
       }, function(error) {
 
       });
+      setTimeout(location.reload.bind(location), 500);
   }
 
 firebase.auth().onAuthStateChanged(user=>{
