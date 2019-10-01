@@ -39,9 +39,8 @@ function updateUserProfile() {
         var displayName = userNow.displayName;
         window.location.reload(true);
       }, function(error) {
-
+        console.log("Couldn't update User Profile" + error.message);
       });
-      setTimeout(location.reload.bind(location), 500);
   }
 
 firebase.auth().onAuthStateChanged(user=>{
