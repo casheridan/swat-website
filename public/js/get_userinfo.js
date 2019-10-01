@@ -37,6 +37,7 @@ function updateUserProfile() {
         email: document.getElementById("emailInput").value
       }).then(function() {
         var displayName = userNow.displayName;
+        window.location.reload(true);
       }, function(error) {
 
       });
