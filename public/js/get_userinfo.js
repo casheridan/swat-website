@@ -95,8 +95,10 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbxii4b_fwf9YFx4clHl1H
 const form = document.forms['submit_to_google_sheet']
 
 function clockIn() {
-  if(isClocked == "true")
+  if(isClocked == "true"){
+    alert("You are already clocked in!");
     return;
+  }
 
     document.getElementById("clocked").value = "Clocked In";
     database.child("users").child(userId).child("clocked").set("true");
@@ -104,8 +106,10 @@ function clockIn() {
 }
 
 function clockOut() {
-  if(isClocked == "false" || !isClocked)
+  if(isClocked == "false" || !isClocked){
+    alert("You must clock in!");
     return;
+  }
 
     document.getElementById("clocked").value = "Clocked Out";
     database.child("users").child(userId).child("clocked").set("false");
