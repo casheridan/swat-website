@@ -1,5 +1,8 @@
 var user = firebase.auth().currentUser;
+var database = firebase.database().ref();
 var name, email, emailVerified;
+var userId;
+
 
 firebase.auth().onAuthStateChanged(user=>{
   if(user){
@@ -49,7 +52,10 @@ firebase.auth().onAuthStateChanged(user=>{
       document.getElementById("navbar-user").classList.remove('hide')
       document.getElementById("login_pic-nav").classList.add('hide')
       document.getElementById("login-nav").classList.add('hide')
-    } else{
+      userId = user.uid;
+      queryDatabase();
+    }
+    else {
       document.getElementById("btnLogOut").classList.add('hide')
       document.getElementById("navbar-user").classList.add('hide')
       document.getElementById("login_pic-nav").classList.remove('hide')
@@ -57,17 +63,51 @@ firebase.auth().onAuthStateChanged(user=>{
     }
   })
 
-  document.getElementById("btnLogOut").addEventListener('click', e=>{
-    firebase.auth().signOut();
-    console.log('logged out');
-    window.location.href = 'home.html';
-  })
+document.getElementById("btnLogOut").addEventListener('click', e=>{
+  firebase.auth().signOut();
+  console.log('logged out');
+  window.location.href = 'home.html';
+})
 
-  function sendVerificationEmail() {
-    var user = firebase.auth().currentUser;
-    user.sendEmailVerification().then(function() {
-      console.log("Email Sent to: " + user.displayName);
-    }).catch(function(error) {
-      console.log(error.message);
-    });
-  }
+function sendVerificationEmail() {
+  var user = firebase.auth().currentUser;
+  user.sendEmailVerification().then(function() {
+    console.log("Email Sent to: " + user.displayName);
+  }).catch(function(error) {
+    console.log(error.message);
+  });
+}
+
+var isClocked;
+
+function queryDatabase() {
+  var databaseRef = database.child("users").child(userId).child("clocked");
+  databaseRef.on('value', function(snapshot){
+    isClocked = snapshot.val();
+  });
+}
+
+function sendForm() {
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+}
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxii4b_fwf9YFx4clHl1HgL7bgClAt8QGDYSk8rwe9SExR6qidg/exec'
+const form = document.forms['submit_to_google_sheet']
+
+function clockIn() {
+  if(isClocked == "true")
+    return;
+
+    document.getElementById("clocked").value = "Clocked In";
+    database.child("users").child(userId).child("clocked").set("true");
+    sendForm();
+}
+
+function clockOut() {
+  if(isClocked == "false" || !isClocked)
+    return;
+
+    document.getElementById("clocked").value = "Clocked Out";
+    database.child("users").child(userId).child("clocked").set("false");
+    sendForm();
+}
