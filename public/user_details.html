@@ -15,6 +15,7 @@
 
       <!-- Add Firebase products that you want to use -->
       <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -37,11 +38,12 @@
         </div>
 
         <form name="fromu1" id='submit_to_google_sheet' style="margin-top:90px;text-align:center;">
-          <input readonly type="custom" id="time" name="time" style="font-family:sans-serif;text-align:center;">
+          <input readonly type="custom" id="date" name="date" style="font-family:sans-serif;text-align:right;">
+          <input readonly type="custom" id="time" name="time" style="font-family:sans-serif;text-align:left;">
           <br>
-          <button type="submit" id="submit" onclick="clockedIn()" style="width:20%;display:block;margin:0 auto;">Clock In</button>
+          <button type="button" onclick="clockIn()" style="width:20%;display:block;margin:0 auto;">Clock In</button>
           <br>
-          <button type="submit" id="submit" onclick="clockedOut()" style="width:20%;display:block;margin:0 auto;">Clock Out</button>
+          <button type="button" onclick="clockOut()" style="width:20%;display:block;margin:0 auto;">Clock Out</button>
           <input hidden readonly value="" id="clocked" name="clocked">
           <h3>Name:
             <input readonly type="custom" name="student_name" id="name">
@@ -84,37 +86,18 @@
       </script>
 
       <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxii4b_fwf9YFx4clHl1HgL7bgClAt8QGDYSk8rwe9SExR6qidg/exec'
-        const form = document.forms['submit_to_google_sheet']
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-        })
-      </script>
-
-      <script>
         function updateClock() {
           var today = new Date();
-          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+          var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
           var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-          var dateTime = date+' '+time;
-          document.getElementById("time").value = dateTime;
+          document.getElementById("date").value = date;
+          document.getElementById("time").value = time;
 
           // call this function again in 1000ms
           setTimeout(updateClock, 1000);
         }
 
         updateClock();
-
-        function clockedIn() {
-          document.getElementById("clocked").value = "Clocked In";
-        }
-
-        function clockedOut() {
-          document.getElementById("clocked").value = "Clocked Out";
-        }
       </script>
 
       <script src="js/firebase_config.js"></script>
