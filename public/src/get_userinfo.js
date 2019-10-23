@@ -4,6 +4,24 @@ var name, email, emailVerified;
 var userId;
 
 
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "5000",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "5000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
 firebase.auth().onAuthStateChanged(user=>{
   if(user){
     name = user.displayName;
@@ -53,7 +71,6 @@ firebase.auth().onAuthStateChanged(user=>{
       document.getElementById("login_pic-nav").classList.add('hide')
       document.getElementById("login-nav").classList.add('hide')
       userId = user.uid;
-      queryDatabase();
     }
     else {
       document.getElementById("btnLogOut").classList.add('hide')
@@ -78,16 +95,22 @@ function sendVerificationEmail() {
   });
 }
 
-var isClocked;
 
 function queryDatabase() {
+  var rtn;
   var databaseRef = database.child("users").child(userId).child("clocked");
   databaseRef.on('value', function(snapshot){
-    isClocked = snapshot.val();
+    rtn = snapshot.val();
   });
+  if (rtn == undefined) rtn = "false";
+  return rtn;
 }
 
-function sendForm() {
+function sendForm(isClockedIn) {
+  var eleVal = isClockedIn == "true" ? "Clocked In" : "Clocked Out";
+  document.getElementById("clocked").value = eleVal;
+  database.child("users").child(userId).child("clocked").set(isClockedIn);
+
   fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 }
 
@@ -95,23 +118,20 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbxii4b_fwf9YFx4clHl1H
 const form = document.forms['submit_to_google_sheet']
 
 function clockIn() {
-  if(isClocked == "true"){
-    alert("You are already clocked in!");
+  if(queryDatabase() == "true"){
+    toastr["warning"]("You are already clocked in!");
+
     return;
   }
-
-    document.getElementById("clocked").value = "Clocked In";
-    database.child("users").child(userId).child("clocked").set("true");
-    sendForm();
+    toastr["success"]("Clock In Successful");
+    sendForm("true");
 }
 
 function clockOut() {
-  if(isClocked == "false" || !isClocked){
-    alert("You must clock in!");
+  if(!(queryDatabase() == "true")){
+    toastr["warning"]("You must clock in first");
     return;
   }
-
-    document.getElementById("clocked").value = "Clocked Out";
-    database.child("users").child(userId).child("clocked").set("false");
-    sendForm();
+    toastr["success"]("Clock Out Successful");
+    sendForm("false");
 }

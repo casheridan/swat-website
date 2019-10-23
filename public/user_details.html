@@ -5,9 +5,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" href="pictures/Icon.png">
       <link rel="stylesheet" href="css/main_stylesheet.css">
+      <link rel="stylesheet" href="css/toastr.css">
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
       <title>S.W.A.T. 1806 | User Profile</title>
+      <script src="src/jquery.min.js"></script>
+      <script src="src/toastr.js"></script>
+      <script src="./ipaddress"></script>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -41,9 +45,9 @@
           <input readonly type="custom" id="date" name="date" style="font-family:sans-serif;text-align:right;">
           <input readonly type="custom" id="time" name="time" style="font-family:sans-serif;text-align:left;">
           <br>
-          <button type="button" onclick="clockIn()" style="width:20%;display:block;margin:0 auto;">Clock In</button>
+          <button type="button" onclick="clockIn()" class="mybutton" style="width:20%;display:block;margin:0 auto;">Clock In</button>
           <br>
-          <button type="button" onclick="clockOut()" style="width:20%;display:block;margin:0 auto;">Clock Out</button>
+          <button type="button" onclick="clockOut()" class="mybutton" style="width:20%;display:block;margin:0 auto;">Clock Out</button>
           <input hidden readonly value="" id="clocked" name="clocked">
           <h3>Name:
             <input readonly type="custom" name="student_name" id="name">
@@ -51,7 +55,7 @@
           <p class="login-p">Change Name: </p>
           <input type="name" id="nameInput" style="display:block;margin:0 auto;">
           <br>
-          <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
+          <button type="button" class="mybutton" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
           <br>
           <h3>Email:
             <input readonly type="custom" name="email" id="email">
@@ -100,6 +104,6 @@
         updateClock();
       </script>
 
-      <script src="js/firebase_config.js"></script>
-      <script src="js/get_userinfo.js"></script>
+      <script src="src/firebase_config.js"></script>
+      <script src="src/get_userinfo.js"></script>
     </html>
