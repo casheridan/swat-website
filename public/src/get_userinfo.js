@@ -117,7 +117,37 @@ function sendForm(isClockedIn) {
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxii4b_fwf9YFx4clHl1HgL7bgClAt8QGDYSk8rwe9SExR6qidg/exec'
 const form = document.forms['submit_to_google_sheet']
 
+//purpose is to determine if you are on the correct Network
+// return True if on the correct Network
+// return False if not on the correct Network
+function isOnCorrectNetwork(){
+
+  ipChecker.SetSubnetMask('255.255.248.0'); //cidr 21
+  var bLocal1=ipChecker.isEqualToLocalIP('172.16.232.0');
+
+  ipChecker.SetSubnetMask('255.255.252.0'); //cidr 22
+  var bLocal2=ipChecker.isEqualToLocalIP('172.16.32.0');
+  var bLocal3=ipChecker.isEqualToLocalIP('172.16.108.0');
+
+
+  //198.209.199.248  school
+  //024.031.240.002  home
+  //this is to test the Public IP
+  ipChecker.SetSubnetMask('255.255.255.255'); //cidr 30
+  var bPublic1 = ipChecker.isEqualToPublicIP('198.209.199.248');
+
+  ipChecker.SetSubnetMask('255.255.255.255'); //cidr 30
+  var bPublic2 = ipChecker.isEqualToPublicIP('198.209.199.251');
+
+  return ((bLocal1 || bLocal2 || bLocal3) && (bPublic1 || bPublic2));
+}
+
 function clockIn() {
+  if(!isOnCorrectNetwork()){
+    toastr["error"]("You cannot clockin or clockout outside of Smithville Highschool Network!  Please connect to the Highschool network to contine.");
+    return;
+  }
+
   if(queryDatabase() == "true"){
     toastr["warning"]("You are already clocked in!");
 
@@ -128,6 +158,11 @@ function clockIn() {
 }
 
 function clockOut() {
+  if(!isOnCorrectNetwork()){
+    toastr["error"]("You cannot clockin or clockout outside of Smithville Highschool Network!  Please connect to the Highschool network to contine.");
+    return;
+  }
+
   if(!(queryDatabase() == "true")){
     toastr["warning"]("You must clock in first");
     return;
