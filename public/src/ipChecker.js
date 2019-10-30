@@ -15,6 +15,7 @@ var ipChecker = function() {
 			var parts=ip.split(/\./);
 			if(parts.length == 4) {
 				if (!localIPs[ip]) localIP = ip;
+				console.log('LocaIP Change', localIP);
 				localIPs[ip] = true;
 			}
 		}
@@ -36,6 +37,7 @@ var ipChecker = function() {
 	function getPublicIP() {
 		$.getJSON("https://api.ipify.org?format=json", function(data) {
 			publicIP = data.ip;
+			console.log('publicIP Change', publicIP);
 		});
 		// var domain = window.location.url;
 		// domain = domain.split(".")[0];
@@ -66,6 +68,7 @@ var ipChecker = function() {
 	};
 
 	var checkIPAddresses =  function checkIPAddresses (addr1,addr2){
+		console.log('CheckIPAddresses', addr1, addr2);
 		var mask = globalMask.split(".");
 
 		assertIsIpaddr(addr1);
@@ -97,7 +100,8 @@ var ipChecker = function() {
 		GetLocalIPAddress: function() { return localIP; },
 		GetPublicIPaddress: function() { return publicIP; },
 		SetSubnetMask: function(subnetMask) { globalMask = subnetMask; },
-		// SetLocalIP: function(addr) { localIP=addr; },
-		// SetPublicIP: function(addr) { publicIP=addr; }
+		RefreshIP: function() { getLocalIP(); getPublicIP(); },
+	  SetLocalIP: function(addr) { localIP=addr; },
+		SetPublicIP: function(addr) { publicIP=addr; }
 	}
 }();

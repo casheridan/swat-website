@@ -5,17 +5,17 @@ var userId;
 
 
 toastr.options = {
-  "closeButton": true,
+  "closeButton": false,
   "debug": false,
-  "newestOnTop": false,
-  "progressBar": true,
+  "newestOnTop": true,
+  "progressBar": false,
   "positionClass": "toast-top-right",
-  "preventDuplicates": false,
+  "preventDuplicates": true,
   "onclick": null,
-  "showDuration": "5000",
+  "showDuration": "2600",
   "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "5000",
+  "timeOut": "2600",
+  "extendedTimeOut": "1500",
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
@@ -111,17 +111,19 @@ function sendForm(isClockedIn) {
   document.getElementById("clocked").value = eleVal;
   database.child("users").child(userId).child("clocked").set(isClockedIn);
 
-  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) });
 }
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxii4b_fwf9YFx4clHl1HgL7bgClAt8QGDYSk8rwe9SExR6qidg/exec'
 const form = document.forms['submit_to_google_sheet']
 
-//purpose is to determine if you are on the correct Network
+// purpose is to determine if you are on the correct Network
 // return True if on the correct Network
 // return False if not on the correct Network
 function isOnCorrectNetwork(){
-
+  return isOnHomeNetwork();
+  // ipChecker.SetLocalIP('172.16.32.5');
+  // ipChecker.SetPublicIP('198.209.199.248');
   ipChecker.SetSubnetMask('255.255.248.0'); //cidr 21
   var bLocal1=ipChecker.isEqualToLocalIP('172.16.232.0');
 
@@ -129,9 +131,6 @@ function isOnCorrectNetwork(){
   var bLocal2=ipChecker.isEqualToLocalIP('172.16.32.0');
   var bLocal3=ipChecker.isEqualToLocalIP('172.16.108.0');
 
-
-  //198.209.199.248  school
-  //024.031.240.002  home
   //this is to test the Public IP
   ipChecker.SetSubnetMask('255.255.255.255'); //cidr 30
   var bPublic1 = ipChecker.isEqualToPublicIP('198.209.199.248');
@@ -142,31 +141,56 @@ function isOnCorrectNetwork(){
   return ((bLocal1 || bLocal2 || bLocal3) && (bPublic1 || bPublic2));
 }
 
+function isOnHomeNetwork() {
+  ipChecker.SetSubnetMask('255.255.255.0'); //cidr 21
+  var bLocal = ipChecker.isEqualToLocalIP('192.168.1.1');
+
+  //this is to test the Public IP
+  ipChecker.SetSubnetMask('255.255.255.255'); //cidr 30
+  var bPublic = ipChecker.isEqualToPublicIP('24.31.240.2');
+
+  return (bLocal && bPublic);
+}
+
 function clockIn() {
-  if(!isOnCorrectNetwork()){
-    toastr["error"]("You cannot clockin or clockout outside of Smithville Highschool Network!  Please connect to the Highschool network to contine.");
-    return;
-  }
+  toastr["info"]("Clocking In...");
+  ipChecker.RefreshIP();
+  setTimeout(function() {
+    console.log('Checking Local IP', ipChecker.GetLocalIPAddress());
+    console.log('Checking Public IP', ipChecker.GetPublicIPaddress());
+    if(!isOnCorrectNetwork()){
+      toastr["error"]("You cannot clock in/out outside of SHS Network! Please connect to contine.");
+      return;
+    }
 
-  if(queryDatabase() == "true"){
-    toastr["warning"]("You are already clocked in!");
+    if(queryDatabase() == "true"){
+      toastr["warning"]("You are already clocked in!");
 
-    return;
-  }
+      return;
+    }
+
     toastr["success"]("Clock In Successful");
     sendForm("true");
+  }, 3000);
 }
 
 function clockOut() {
-  if(!isOnCorrectNetwork()){
-    toastr["error"]("You cannot clockin or clockout outside of Smithville Highschool Network!  Please connect to the Highschool network to contine.");
-    return;
-  }
+  toastr["info"]("Clocking Out...");
+  ipChecker.RefreshIP();
+  setTimeout(function() {
+    console.log('Checking Local IP', ipChecker.GetLocalIPAddress());
+    console.log('Checking Public IP', ipChecker.GetPublicIPaddress());
+    if(!isOnCorrectNetwork()){
+      toastr["error"]("You cannot clock in/out outside of SHS Network! Please connect to contine.");
+      return;
+    }
 
-  if(!(queryDatabase() == "true")){
-    toastr["warning"]("You must clock in first");
-    return;
-  }
+    if(!(queryDatabase() == "true")){
+      toastr["warning"]("You must clock in first");
+      return;
+    }
+
     toastr["success"]("Clock Out Successful");
     sendForm("false");
+  }, 3000);
 }
