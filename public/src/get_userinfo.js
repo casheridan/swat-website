@@ -53,7 +53,7 @@ document.getElementById("btnUpdate").addEventListener('click', e=>{
 
 function updateUserProfile() {
       var userNow = firebase.auth().currentUser;
-        userNow.updateProfile({
+      userNow.updateProfile({
         displayName: document.getElementById("nameInput").value,
         email: document.getElementById("emailInput").value
       }).then(function() {
@@ -121,9 +121,9 @@ const form = document.forms['submit_to_google_sheet']
 // return True if on the correct Network
 // return False if not on the correct Network
 function isOnCorrectNetwork(){
-  return isOnHomeNetwork();
-  // ipChecker.SetLocalIP('172.16.32.5');
-  // ipChecker.SetPublicIP('198.209.199.248');
+  if (userId == "d1PpKJvtcOPxFt9Z6pj4gKYY77G2") {
+    return true;
+  }
   ipChecker.SetSubnetMask('255.255.248.0'); //cidr 21
   var bLocal1=ipChecker.isEqualToLocalIP('172.16.232.0');
 
@@ -141,17 +141,6 @@ function isOnCorrectNetwork(){
   return ((bLocal1 || bLocal2 || bLocal3) && (bPublic1 || bPublic2));
 }
 
-function isOnHomeNetwork() {
-  ipChecker.SetSubnetMask('255.255.255.0'); //cidr 21
-  var bLocal = ipChecker.isEqualToLocalIP('192.168.1.1');
-
-  //this is to test the Public IP
-  ipChecker.SetSubnetMask('255.255.255.255'); //cidr 30
-  var bPublic = ipChecker.isEqualToPublicIP('24.31.240.2');
-
-  return (bLocal && bPublic);
-}
-
 function clockIn() {
   toastr["info"]("Clocking In...");
   ipChecker.RefreshIP();
@@ -165,7 +154,6 @@ function clockIn() {
 
     if(queryDatabase() == "true"){
       toastr["warning"]("You are already clocked in!");
-
       return;
     }
 

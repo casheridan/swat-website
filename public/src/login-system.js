@@ -17,21 +17,31 @@ document.getElementById("btnLogin").addEventListener('click', e=>{
   promise.catch(e=>{ console.log(e.massage)})
 })
 
-// Signs the user out
-document.getElementById("btnLogOut").addEventListener('click', e=>{
-  firebase.auth().signOut();
-  console.log('logged out')
+document.getElementById("email").addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("password").value;
+    const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+    promise.catch(e=>{ console.log(e.massage)})
+  }
+})
+
+document.getElementById("password").addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("password").value;
+    const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+    promise.catch(e=>{ console.log(e.massage)})
+  }
 })
 
 firebase.auth().onAuthStateChanged(user=>{
   if(user){
-    document.getElementById("btnLogOut").classList.remove('hide')
     document.getElementById("navbar-user").classList.remove('hide')
     document.getElementById("login_pic-nav").classList.add('hide')
     document.getElementById("login-nav").classList.add('hide')
     window.location.href = 'home.html'
   } else{
-    document.getElementById("btnLogOut").classList.add('hide')
     document.getElementById("navbar-user").classList.add('hide')
     document.getElementById("login_pic-nav").classList.remove('hide')
     document.getElementById("login-nav").classList.remove('hide')

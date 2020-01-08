@@ -15,11 +15,12 @@
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
       <!-- Add Firebase products that you want to use -->
-      <script SameSite="strict" src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+      <script SameSite="strict" src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -45,9 +46,9 @@
           <input readonly type="custom" id="date" name="date" style="font-family:sans-serif;text-align:right;">
           <input readonly type="custom" id="time" name="time" style="font-family:sans-serif;text-align:left;">
           <br>
-          <button type="button" onclick="clockIn()" class="mybutton" style="width:20%;display:block;margin:0 auto;">Clock In</button>
+          <button type="button" onclick="clockIn()" class="mybutton" id="clockIn" style="width:20%;display:block;margin:0 auto;">Clock In</button>
           <br>
-          <button type="button" onclick="clockOut()" class="mybutton" style="width:20%;display:block;margin:0 auto;">Clock Out</button>
+          <button type="button" onclick="clockOut()" class="mybutton" id="clockOut" style="width:20%;display:block;margin:0 auto;">Clock Out</button>
           <input hidden readonly value="" id="clocked" name="clocked">
           <h3>Name:
             <input readonly type="custom" name="student_name" id="name">
@@ -70,7 +71,7 @@
           -->
         </form>
 
-        <a href="report-page.html"><p style="text-align:center;">Report Viewer</p></a>
+        <a href="admin-page.html"><p style="text-align:center;" id="adminpage">Admin Page</p></a>
 
         <br/>
         <br/>
@@ -107,5 +108,6 @@
       </script>
 
       <script src="src/firebase_config.js"></script>
+      <script src="src/admin-system.js"></script>
       <script src="src/get_userinfo.js"></script>
     </html>

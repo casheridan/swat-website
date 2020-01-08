@@ -7,16 +7,18 @@
       <link rel="stylesheet" href="css/main_stylesheet.css">
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
-      <title>S.W.A.T. 1806 | Student Reports</title>
-      <script src="src/jquery.min.js"></script>
-      <script src="src/sheetsReader.js"></script>
+      <title>S.W.A.T. 1806 | Admin</title>
+      <script src="src/toastr.js"></script>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
       <!-- Add Firebase products that you want to use -->
-      <script SameSite="strict" src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -38,19 +40,18 @@
           <a href="newsletters.html">Newsletters</a>
         </div>
 
-        <h1>Google Spreadsheet Javascript</h1>
-          Here is the most basic usage:
-          <pre id='code'></pre>
-          And here are the results:
-          <pre id='results'></pre>
-          <div id='links'>
-            Github URL: <a href='https://github.com/mikeymckay/google-spreadsheet-javascript'>https://github.com/mikeymckay/google-spreadsheet-javascript</a><br/>
-            Source URL for above spreadsheet data: <span id='spreadsheet_url'></span><br/>
-            Try your own spreadsheet (needs to be <a href='https://docs.google.com/support/bin/answer.py?hl=en&answer=47134'>published</a>):<br/>
-            <input style='width:700px' name='url' type='text'></input>
-            <input onclick='document.location = document.location.pathname + "?url="+$("input[name]").val()' type='submit'></input>
-          </div>
-          <iframe width='500' height='300' frameborder='0' ></iframe>
+        <form id='submit_to_google_sheet' style="margin:40px auto; max-width: 300px;">
+          <input type="email" placeholder="User email" name="email" required />
+          <label>User Type</label>
+          <select name="userType">
+            <option value="0">Normal</option>
+            <option value="1">Student</option>
+            <option value="2">Admin</option>
+          </select>
+          <button type="button" onclick="saveChanges()" class="mybutton" style="display:block;margin:0 auto;">Save Changes</button>
+        </form>
+
+        <a href="report-page.html"><p style="text-align:center;">Report Viewer</p></a>
 
         <br/>
         <br/>
@@ -61,19 +62,6 @@
 
       </body>
 
-      <script id='script'>
-        localStorage.clear();
-        var sample_url = "https://spreadsheets.google.com/feeds/cells/1LZH0l6-1vHG1OAmuxuhRObXbInrqhU6Bc_K-rYcfaOc/1/public/full?alt=json";
-        var url_parameter = document.location.search.split(/\?url=/)[1]
-        var url = url_parameter || sample_url;
-        var googleSpreadsheet = new GoogleSpreadsheet();
-        googleSpreadsheet.url(url);
-        googleSpreadsheet.load(function(result) {
-          console.log('GoogleResults', result);
-          $('#results').html(JSON.stringify(result).replace(/,/g,",\n"));
-        });
-      </script>
-
       <script>
         function openNav() {
           document.getElementById("mySidenav").style.width = "250px";
@@ -83,7 +71,7 @@
           document.getElementById("mySidenav").style.width = "0";
         }
       </script>
-
       <script src="src/firebase_config.js"></script>
+      <script src="src/admin-comps.js"></script>
       <script src="src/auth_check.js"></script>
     </html>
