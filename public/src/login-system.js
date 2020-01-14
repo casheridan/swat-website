@@ -1,3 +1,5 @@
+var db = firebase.firestore();
+
 // This is used to create a new user with their password and should mostly be used with administrator privilages
 // This could also be used in the future with maybe anyone can sign up and admins can set if you are a student of swat
 document.getElementById("btnSignUp").addEventListener('click', e=>{
@@ -40,8 +42,21 @@ firebase.auth().onAuthStateChanged(user=>{
     document.getElementById("navbar-user").classList.remove('hide')
     document.getElementById("login_pic-nav").classList.add('hide')
     document.getElementById("login-nav").classList.add('hide')
-    window.location.href = 'home.html'
-  } else{
+    var obj;
+    db.collection('users').doc(user.uid).get().then(function(doc) {
+      if (doc.exists) {
+        obj = { uid: user.uid, userType: doc.data().userType };
+        var jObj = JSON.stringify(obj);
+        window.localStorage.setItem("swatuseridentification", jObj);
+      } else {
+        db.collection('users').doc(userId).set({
+          userType: 0,
+          name: user.displayName
+        })
+      }
+    })
+    setTimeout(function(){window.location.href = 'home.html'}, 500)
+  } else {
     document.getElementById("navbar-user").classList.add('hide')
     document.getElementById("login_pic-nav").classList.remove('hide')
     document.getElementById("login-nav").classList.remove('hide')

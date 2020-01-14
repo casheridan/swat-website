@@ -9,7 +9,6 @@
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
       <title>S.W.A.T. 1806 | Student Reports</title>
       <script src="src/jquery.min.js"></script>
-      <script src="src/sheetsReader.js"></script>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -37,20 +36,12 @@
           <a href="scouting.html">Scouting</a>
           <a href="newsletters.html">Newsletters</a>
         </div>
-
-        <h1>Google Spreadsheet Javascript</h1>
-          Here is the most basic usage:
-          <pre id='code'></pre>
-          And here are the results:
-          <pre id='results'></pre>
-          <div id='links'>
-            Github URL: <a href='https://github.com/mikeymckay/google-spreadsheet-javascript'>https://github.com/mikeymckay/google-spreadsheet-javascript</a><br/>
-            Source URL for above spreadsheet data: <span id='spreadsheet_url'></span><br/>
-            Try your own spreadsheet (needs to be <a href='https://docs.google.com/support/bin/answer.py?hl=en&answer=47134'>published</a>):<br/>
-            <input style='width:700px' name='url' type='text'></input>
-            <input onclick='document.location = document.location.pathname + "?url="+$("input[name]").val()' type='submit'></input>
-          </div>
-          <iframe width='500' height='300' frameborder='0' ></iframe>
+      </br>
+      </br>
+      </br>
+      </br>
+        And here are the results:
+        <pre id='results'></pre>
 
         <br/>
         <br/>
@@ -62,15 +53,20 @@
       </body>
 
       <script id='script'>
-        localStorage.clear();
-        var sample_url = "https://spreadsheets.google.com/feeds/cells/1LZH0l6-1vHG1OAmuxuhRObXbInrqhU6Bc_K-rYcfaOc/1/public/full?alt=json";
-        var url_parameter = document.location.search.split(/\?url=/)[1]
-        var url = url_parameter || sample_url;
-        var googleSpreadsheet = new GoogleSpreadsheet();
-        googleSpreadsheet.url(url);
-        googleSpreadsheet.load(function(result) {
-          console.log('GoogleResults', result);
-          $('#results').html(JSON.stringify(result).replace(/,/g,",\n"));
+        // ID of the Google Spreadsheet
+        var spreadsheetID = "1LZH0l6-1vHG1OAmuxuhRObXbInrqhU6Bc_K-rYcfaOc";
+
+        // Make sure it is public or set to Anyone with link can view
+        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+
+        $.getJSON(url, function(data) {
+
+         var entry = data.feed.entry;
+        $(entry).each(function(){
+           // Column names are name, age, etc.
+           $('#results').append('<h2>'+this.gsx$studentname.$t+'</h2><p>'+this.gsx$clocked.$t+'</p><p>'+this.gsx$date.$t+'</p><p>'+this.gsx$time.$t+'</p>');
+        });
+
         });
       </script>
 

@@ -1,17 +1,39 @@
 var user = firebase.auth().currentUser;
 var db = firebase.firestore();
-var userId;
+
+var jObj = window.localStorage.getItem("swatuseridentification");
+var obj = JSON.parse(jObj);
 
 firebase.auth().onAuthStateChanged(user=>{
     if(user){
-      userId = user.uid;
+      isAdmin();
     } else {
       return;
     }
+});
+
+const selectUser = document.querySelector('#selectUser');
+
+function renderUser(doc) {
+  let option = document.createElement('option');
+  let name = document.createElement('span');
+
+  option.setAttribute('value', doc.id);
+  name.textContent = doc.data().name;
+
+  option.appendChild(name);
+
+  selectUser.appendChild(option);
+}
+
+db.collection('users').get().then((snapshot) => {
+  snapshot.docs.forEach(doc => {
+    renderUser(doc);
   })
+});
 
 function isAdmin(doc){
-  if(doc.data().userType == 2){
+  if(obj.userType == 2){
     return;
   }
   else {
@@ -20,13 +42,16 @@ function isAdmin(doc){
   }
 }
 
-setTimeout(function() {
-  db.collection('users').doc(userId).get().then(function(doc) {
-    if (doc.exists) {
-      isAdmin(doc);
-    } else {
-      console.log("How did you get here?");
-      return;
-    }
+$('#selectUser').change(function() {
+  $('#selectType').show();
+  db.collection('users').doc($('#selectUser').val()).get().then((snapshot) => {
+    document.getElementById(snapshot.data().userType).setAttribute('selected', true);
   })
-}, 500);
+});
+
+$('#saveChanges').click(function() {
+  db.collection('users').doc($('#selectUser').val()).set({
+    name: $('#selectUser').find('option:selected').text(),
+    userType: $('#selectType').val()
+  });
+});

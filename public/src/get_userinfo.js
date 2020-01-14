@@ -1,7 +1,10 @@
 var user = firebase.auth().currentUser;
 var database = firebase.database().ref();
 var name, email, emailVerified;
-var userId;
+var _user = window.localStorage.getItem("swatuseridentification");
+var _User = JSON.parse(_user);
+var userId = _User.uid;
+var result = queryDatabase();
 
 
 toastr.options = {
@@ -31,6 +34,10 @@ firebase.auth().onAuthStateChanged(user=>{
     document.getElementById("sendVerifyEmail").classList.add('hide');
     document.getElementById("name").value = name;
     document.getElementById("email").value = email;
+    document.getElementById("btnLogOut").classList.remove('hide')
+    document.getElementById("navbar-user").classList.remove('hide')
+    document.getElementById("login_pic-nav").classList.add('hide')
+    document.getElementById("login-nav").classList.add('hide')
     if (emailVerified == true) {
       document.getElementById("verification1").classList.add('hide');
       document.getElementById("verification2").classList.remove('hide');
@@ -40,10 +47,15 @@ firebase.auth().onAuthStateChanged(user=>{
       document.getElementById("verification1").classList.remove('hide');
       document.getElementById("verification2").classList.add('hide');
       document.getElementById("sendVerifyEmail").classList.remove('hide');
+
     }
   }
   else{
     console.log("Not logged in.");
+    document.getElementById("btnLogOut").classList.add('hide')
+    document.getElementById("navbar-user").classList.add('hide')
+    document.getElementById("login_pic-nav").classList.remove('hide')
+    document.getElementById("login-nav").classList.remove('hide')
   }
 })
 
@@ -63,22 +75,6 @@ function updateUserProfile() {
         console.log("Couldn't update User Profile" + error.message);
       });
   }
-
-firebase.auth().onAuthStateChanged(user=>{
-    if(user){
-      document.getElementById("btnLogOut").classList.remove('hide')
-      document.getElementById("navbar-user").classList.remove('hide')
-      document.getElementById("login_pic-nav").classList.add('hide')
-      document.getElementById("login-nav").classList.add('hide')
-      userId = user.uid;
-    }
-    else {
-      document.getElementById("btnLogOut").classList.add('hide')
-      document.getElementById("navbar-user").classList.add('hide')
-      document.getElementById("login_pic-nav").classList.remove('hide')
-      document.getElementById("login-nav").classList.remove('hide')
-    }
-  })
 
 document.getElementById("btnLogOut").addEventListener('click', e=>{
   firebase.auth().signOut();
@@ -101,8 +97,9 @@ function queryDatabase() {
   var databaseRef = database.child("users").child(userId).child("clocked");
   databaseRef.on('value', function(snapshot){
     rtn = snapshot.val();
+    window.localStorage.setItem("clocked", rtn);
   });
-  if (rtn == undefined) rtn = "false";
+  if (rtn == undefined) {rtn = "false"}
   return rtn;
 }
 
@@ -141,7 +138,7 @@ function isOnCorrectNetwork(){
   return ((bLocal1 || bLocal2 || bLocal3) && (bPublic1 || bPublic2));
 }
 
-function clockIn() {
+function _clockIn() {
   toastr["info"]("Clocking In...");
   ipChecker.RefreshIP();
   setTimeout(function() {
@@ -152,7 +149,9 @@ function clockIn() {
       return;
     }
 
-    if(queryDatabase() == "true"){
+    let r = queryDatabase()
+
+    if (r == "true"){
       toastr["warning"]("You are already clocked in!");
       return;
     }
@@ -162,7 +161,7 @@ function clockIn() {
   }, 3000);
 }
 
-function clockOut() {
+function _clockOut() {
   toastr["info"]("Clocking Out...");
   ipChecker.RefreshIP();
   setTimeout(function() {
@@ -173,7 +172,9 @@ function clockOut() {
       return;
     }
 
-    if(!(queryDatabase() == "true")){
+    let r = queryDatabase()
+
+    if(r == "false"){
       toastr["warning"]("You must clock in first");
       return;
     }
