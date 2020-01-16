@@ -7,19 +7,15 @@
       <link rel="stylesheet" href="css/main_stylesheet.css">
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
-      <title>S.W.A.T. 1806 | Admin</title>
-      <script src="src/toastr.js"></script>
-      <script src="src/jquery.min.js"></script>
+      <title>S.W.A.T. 1806 | Blank</title>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 
       <!-- Add Firebase products that you want to use -->
-      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
-
+      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -44,29 +40,16 @@
         <br>
         <br>
         <br>
+        <br>
+        <h1>Welcome Admin!</h1>
+        <hr width="70%" size="7" noshade>
+        <br>
+        <br>
+        <h3>Student Report Page: <a href="report-page.html">Reports</a></h3>
+        <br>
+        <br>
+        <h3>Manage Students & Admins: <a href="admin-page.html">Manage</a></h3>
 
-        <div class="outside_div">
-          <a href="manager-page.html" style="font-size:20px;margin-right:300px;">← Back</a>
-          <br>
-          <br>
-          <form class="login-box" style="width:25%">
-            <label style="font-size:20px;font-family:helvetica;">User Type:</label>
-            <br>
-            <br>
-            <select class="custom-select" id="selectUser">
-              <option disabled selected>Select a student...</option>
-            </select>
-            <br>
-            <select class="custom-select" id="selectType" style="display:none">
-              <option id="0" value="0">Normal</option>
-              <option id="1" value="1">Student</option>
-              <option id="2" value="2">Admin</option>
-            </select>
-            <br>
-            <br>
-            <button type="button" id="saveChanges" class="mybutton" style="display:block;margin:0 auto;">Save Changes</button>
-          </form>
-        </div>
 
         <br/>
         <br/>
@@ -86,7 +69,8 @@
           document.getElementById("mySidenav").style.width = "0";
         }
       </script>
+
       <script src="src/firebase_config.js"></script>
-      <script src="src/admin-comps.js"></script>
+      <script src="src/admin-comps_manage.js"></script>
       <script src="src/auth_check.js"></script>
     </html>

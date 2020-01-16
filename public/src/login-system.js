@@ -1,4 +1,5 @@
 var db = firebase.firestore();
+var rt = firebase.database();
 
 // This is used to create a new user with their password and should mostly be used with administrator privilages
 // This could also be used in the future with maybe anyone can sign up and admins can set if you are a student of swat
@@ -43,11 +44,15 @@ firebase.auth().onAuthStateChanged(user=>{
     document.getElementById("login_pic-nav").classList.add('hide')
     document.getElementById("login-nav").classList.add('hide')
     var obj;
+
     db.collection('users').doc(user.uid).get().then(function(doc) {
       if (doc.exists) {
         obj = { uid: user.uid, userType: doc.data().userType };
         var jObj = JSON.stringify(obj);
         window.localStorage.setItem("swatuseridentification", jObj);
+        var _user = window.localStorage.getItem("swatuseridentification");
+        var _User = JSON.parse(_user);
+        rt.ref('/users/' + _User.uid).child('userType').set(_User.userType);
       } else {
         db.collection('users').doc(userId).set({
           userType: 0,

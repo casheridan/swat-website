@@ -6,7 +6,6 @@ var _User = JSON.parse(_user);
 var userId = _User.uid;
 var result = queryDatabase();
 
-
 toastr.options = {
   "closeButton": false,
   "debug": false,
@@ -25,12 +24,31 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
+function calc(n){
+  var num = n;
+  var days = (num / 1440);
+  var rdays = Math.floor(days);
+  var hours = (days - rdays) * 24;
+  var rhours = Math.floor(hours);
+  var minutes = (hours - rhours) * 60;
+  var rminutes = Math.round(minutes);
+  return time = rdays + "d " + rhours + "h " + rminutes + "m";
+}
+
 firebase.auth().onAuthStateChanged(user=>{
   if(user){
     name = user.displayName;
     email = user.email;
     emailVerified = user.emailVerified;
 
+    firebase.database().ref('/users/' + userId).child('name').set(user.displayName);
+    if(_User.userType != 0) {
+      var ref = firebase.database().ref('/times/' + userId);
+      ref.on('value', function(snapshot) {
+        $('#score').append('Your Total Time: '+calc(snapshot.val().totalTime));
+      })
+    }
+    
     document.getElementById("sendVerifyEmail").classList.add('hide');
     document.getElementById("name").value = name;
     document.getElementById("email").value = email;
@@ -103,6 +121,27 @@ function queryDatabase() {
   return rtn;
 }
 
+var dif;
+
+function calcTime() {
+  var dbUser = firebase.database().ref('/times/' + userId);
+
+  var clockIn, clockOut;
+  dbUser.once('value').then(function(snapshot){
+    clockIn = snapshot.val().ciTime;
+    clockOut = snapshot.val().coTime;
+
+    dif = (clockOut - clockIn);
+    dif = Math.round((dif/1000)/60);
+    console.log("The difference is: " + dif);
+    if (dif == null || dif == undefined || isNaN(dif)) {
+       dif = 0;
+    }
+    console.log("The difference now is: " + dif);
+    return dif;
+  });
+}
+
 function sendForm(isClockedIn) {
   var eleVal = isClockedIn == "true" ? "Clocked In" : "Clocked Out";
   document.getElementById("clocked").value = eleVal;
@@ -155,7 +194,8 @@ function _clockIn() {
       toastr["warning"]("You are already clocked in!");
       return;
     }
-
+    var today = new Date();
+    database.child("times").child(userId).child("ciTime").set(today.getTime());
     toastr["success"]("Clock In Successful");
     sendForm("true");
   }, 3000);
@@ -178,7 +218,33 @@ function _clockOut() {
       toastr["warning"]("You must clock in first");
       return;
     }
+    var today = new Date();
+    let dbUser = database.child("times").child(userId);
+    dbUser.child("coTime").set(today.getTime());
 
+    var clockIn, clockOut, totalTime;
+    dbUser.child("totalTime").set(0);
+    var _totalTime = 0;
+
+    dbUser.on('value', function(snapshot){
+      clockIn = snapshot.val().ciTime;
+      clockOut = snapshot.val().ciTime;
+      return totalTime = snapshot.val().totalTime;
+    });
+
+    if(!(clockIn == 0) && !(clockOut == 0)) {
+
+      calcTime();
+
+      setTimeout(function() {
+        _totalTime = totalTime + dif;
+        dbUser.child("totalTime").set(_totalTime);
+        setTimeout(function() {
+          dbUser.child("ciTime").remove();
+          dbUser.child("coTime").remove();
+        }, 500)
+      }, 500);
+    }
     toastr["success"]("Clock Out Successful");
     sendForm("false");
   }, 3000);

@@ -31,54 +31,61 @@
         <a class="login-nav" id="login-nav" href="login.html">Login</a>
       </div>
 
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="home.html">Home</a>
-          <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
-          <a href="media.html">Media</a>
-          <a href="sponsors.html">Sponsors</a>
-          <a href="robots.html">Robots</a>
-          <a href="scouting.html">Scouting</a>
-          <a href="newsletters.html">Newsletters</a>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="home.html">Home</a>
+        <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+        <a href="media.html">Media</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="robots.html">Robots</a>
+        <a href="scouting.html">Scouting</a>
+        <a href="newsletters.html">Newsletters</a>
+      </div>
+      <div class="outside_div">
+        <div class="login-box">
+          <form name="fromu1" id='submit_to_google_sheet'>
+            <input readonly type="custom" id="date" name="date" style="font-family:sans-serif;text-align:right;width:28%">
+            <input readonly type="custom" id="time" name="time" style="font-family:sans-serif;text-align:left;width:28%">
+            <br>
+            <br>
+            <button type="button" onclick="_clockIn()" class="mybutton" id="clockIn" style="width:40%;display:block;margin:0 auto;">Clock In</button>
+            <br>
+            <button type="button" onclick="_clockOut()" class="mybutton" id="clockOut" style="width:40%;display:block;margin:0 auto;">Clock Out</button>
+            <input hidden readonly value="" id="clocked" name="clocked">
+            <h3 id="score"></h3>
+            <h3>Name:
+              <input readonly style="width:60%" type="custom" name="student_name" id="name">
+            </h3>
+            <p class="login-p" style="text-align:center;font-size:20px;">Change Name: </p>
+            <input type="name" id="nameInput" style="display:block;margin:0 auto;">
+            <br>
+            <button type="button" class="mybutton" style="width:40%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
+            <br>
+            <h3>Email:
+              <input readonly style="width:70%" type="custom" name="email" id="email">
+              <img src="pictures/x-mark-3-512.png" id="verification1" class="ok"><img src="pictures/ok-512.png" id="verification2" class="x-mark">
+            </h3>
+            <p id="sendVerifyEmail" onclick="sendVerificationEmail()" class="verifyEmail">Send Verification Email</p>
+            <!-- This will be added later
+            <p class="login-p">Change Email: </p>
+            <input type="name" id="emailInput" style="display:block;margin:0 auto;">
+            <br>
+            <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Email</button>
+            -->
+          </form>
+          <p id="adminpage" style="text-align:center;font-size:20px;">For Admins: </p>
+          <hr width="20%">
+          <a href="manager-page.html">
+              <p style="text-align:center;font-size:20px;" id="adminpage">Reports and Admin Manager</p>
+          </a>
         </div>
-
-        <form name="fromu1" id='submit_to_google_sheet' style="margin-top:90px;text-align:center;">
-          <input readonly type="custom" id="date" name="date" style="font-family:sans-serif;text-align:right;">
-          <input readonly type="custom" id="time" name="time" style="font-family:sans-serif;text-align:left;">
-          <br>
-          <button type="button" onclick="_clockIn()" class="mybutton" id="clockIn" style="width:20%;display:block;margin:0 auto;">Clock In</button>
-          <br>
-          <button type="button" onclick="_clockOut()" class="mybutton" id="clockOut" style="width:20%;display:block;margin:0 auto;">Clock Out</button>
-          <input hidden readonly value="" id="clocked" name="clocked">
-          <h3>Name:
-            <input readonly type="custom" name="student_name" id="name">
-          </h3>
-          <p class="login-p">Change Name: </p>
-          <input type="name" id="nameInput" style="display:block;margin:0 auto;">
-          <br>
-          <button type="button" class="mybutton" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
-          <br>
-          <h3>Email:
-            <input readonly type="custom" name="email" id="email">
-            <img src="pictures/x-mark-3-512.png" id="verification1" class="ok"><img src="pictures/ok-512.png" id="verification2" class="x-mark">
-          </h3>
-          <p id="sendVerifyEmail" onclick="sendVerificationEmail()" class="verifyEmail">Send Verification Email</p>
-          <!-- This will be added later
-          <p class="login-p">Change Email: </p>
-          <input type="name" id="emailInput" style="display:block;margin:0 auto;">
-          <br>
-          <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Email</button>
-          -->
-        </form>
-
-        <a href="admin-page.html"><p style="text-align:center;" id="adminpage">Admin Page</p></a>
-
-        <br/>
-        <br/>
-        <br/>
-        <footer>
-          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
-        </footer>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <footer>
+        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+      </footer>
 
       </body>
 
@@ -95,8 +102,21 @@
       <script>
         function updateClock() {
           var today = new Date();
-          var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-          var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+          if((today.getMonth()+1) <= 9 && today.getDate() <= 9) {
+            var date = today.getFullYear()+'/0'+(today.getMonth()+1)+'/0'+today.getDate();
+          } else if((today.getMonth()+1) <= 9) {
+            var date = today.getFullYear()+'/0'+(today.getMonth()+1)+'/'+today.getDate();
+          } else if(today.getDate() <= 9) {
+            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/0'+today.getDate();
+          } else {
+            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+          }
+
+          var hours = today.getHours();
+          hours = ((hours + 11) % 12 + 1);
+          var time = hours + ":" + today.getMinutes() + ":" + today.getSeconds();
+
           document.getElementById("date").value = date;
           document.getElementById("time").value = time;
 
@@ -106,7 +126,6 @@
 
         updateClock();
       </script>
-
       <script src="src/firebase_config.js"></script>
       <script src="src/admin-system.js"></script>
       <script src="src/get_userinfo.js"></script>
