@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(user=>{
     firebase.database().ref('/users/' + userId).child('name').set(user.displayName);
     if(_User.userType != 0) {
       var ref = firebase.database().ref('/times/' + userId);
-      ref.once('value')then(function(snapshot) {
+      ref.once('value').then(function(snapshot) {
         $('#score').append('Your Total Time: '+calc(snapshot.val().totalTime));
       })
     }
