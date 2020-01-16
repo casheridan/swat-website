@@ -44,11 +44,11 @@ firebase.auth().onAuthStateChanged(user=>{
     firebase.database().ref('/users/' + userId).child('name').set(user.displayName);
     if(_User.userType != 0) {
       var ref = firebase.database().ref('/times/' + userId);
-      ref.on('value', function(snapshot) {
+      ref.once('value')then(function(snapshot) {
         $('#score').append('Your Total Time: '+calc(snapshot.val().totalTime));
       })
     }
-    
+
     document.getElementById("sendVerifyEmail").classList.add('hide');
     document.getElementById("name").value = name;
     document.getElementById("email").value = email;
