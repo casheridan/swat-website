@@ -12,10 +12,12 @@ firebase.auth().onAuthStateChanged(user=>{
   })
 
 document.getElementById("adminpage").classList.add('hide');
+document.getElementById("adminview").classList.add('hide');
 
 function isAdmin(doc){
   if(obj.userType == 2) {
     document.getElementById("adminpage").classList.remove('hide');
+    document.getElementById("adminview").classList.remove('hide');
     document.getElementById("clockIn").classList.remove('hide');
   }
   if(obj.userType == 0) {
