@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="pictures/Icon.png">
+      <link rel="stylesheet" href="css/main_stylesheet.css">
+      <link rel="stylesheet" href="css/toastr.css">
+      <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
+      <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
+      <title>S.W.A.T. 1806 | Register Account</title>
+      <script src="src/jquery.min.js"></script>
+      <script src="src/toastr.js"></script>
+    </head>
+    <body>
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="home.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px" id="btnLogOut" />
+        <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="login.html">Login</a>
+      </div>
+
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="home.html">Home</a>
+          <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+          <a href="media.html">Media</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="robots.html">Robots</a>
+          <a href="scouting.html">Scouting</a>
+          <a href="newsletters.html">Newsletters</a>
+        </div>
+        <div class="outside_div">
+          <form name="registerForm" class="login-box">
+            <p class="login-hdr">Register Account</p>
+            <hr>
+            <br>
+            <p class="login-p">Name</p>
+            <input class="P-E_inputs" required type="text" name="dispName" placeholder="Enter name..." id="text"><br>
+            <br>
+            <p class="login-p">Email:</p>
+            <input class="P-E_inputs" required type="email" name="email" placeholder="Enter email..." id="email"><br>
+            <p class="login-p">Confirm Email:</p>
+            <input class="P-E_inputs" required type="email" name="email" placeholder="Enter email again..." id="vemail"><br>
+            <br>
+            <p class="login-p">Password:</p>
+            <input class="P-E_inputs" required type="password" name="password" placeholder="Enter password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+            <p class="login-p">Verify Password:</p>
+            <input class="P-E_inputs" required type="password" name="password" placeholder="Enter password again..." id="vpassword"><br><br><hr><br>
+            <p "login-p">Check if member of S.W.A.T.</p><input type="checkbox" name="studentcheck" id="studentcheck">
+            <br>
+            <br>
+            <button type="button" class="mybutton" id="btnSignUp" href="register-page.html">Create User</button>
+            <br>
+            <br>
+          </form>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <footer>
+          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+        </footer>
+
+      </body>
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+      </script>
+
+      <script src="src/firebase_config.js"></script>
+      <script src="src/register_user.js"></script>
+      <script src="src/auth_check.js"></script>
+    </html>

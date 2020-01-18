@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(user=>{
     firebase.database().ref('/users/' + userId).child('name').set(user.displayName);
     if(_User.userType != 0) {
       var ref = firebase.database().ref('/times/' + userId);
-      ref.once('value')then(function(snapshot) {
+      ref.once('value').then(function(snapshot) {
         $('#score').append('Your Total Time: '+calc(snapshot.val().totalTime));
       })
     }
@@ -84,11 +84,14 @@ document.getElementById("btnUpdate").addEventListener('click', e=>{
 function updateUserProfile() {
       var userNow = firebase.auth().currentUser;
       userNow.updateProfile({
-        displayName: document.getElementById("nameInput").value,
-        email: document.getElementById("emailInput").value
+        displayName: document.getElementById("nameInput").value
       }).then(function() {
         var displayName = userNow.displayName;
-        window.location.reload(true);
+        firebase.firestore().collection('users').doc(userId).update({
+          name: userNow.displayName
+        })
+        firebase.database().ref('/users/' + userId).child('name').set(userNow.displayName);
+        setTimeout(function(){window.location.reload(true)}, 500)
       }, function(error) {
         console.log("Couldn't update User Profile" + error.message);
       });
