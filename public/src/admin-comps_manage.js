@@ -1,5 +1,4 @@
 var user = firebase.auth().currentUser;
-var db = firebase.firestore();
 
 var jObj = window.localStorage.getItem("swatuseridentification");
 var obj = JSON.parse(jObj);

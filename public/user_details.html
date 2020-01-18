@@ -42,27 +42,28 @@
         <a href="newsletters.html">Newsletters</a>
       </div>
       <div class="outside_div">
-        <div class="login-box">
+        <div class="user-box">
           <form name="fromu1" id='submit_to_google_sheet'>
-            <input readonly type="custom" id="date" name="date" style="font-family:sans-serif;text-align:right;width:28%">
-            <input readonly type="custom" id="time" name="time" style="font-family:sans-serif;text-align:left;width:28%">
+            <input readonly type="custom" id="date" name="date">
+            <input readonly type="custom" id="time" name="time">
             <br>
             <br>
-            <button type="button" onclick="_clockIn()" class="mybutton" id="clockIn" style="width:40%;display:block;margin:0 auto;">Clock In</button>
+            <button type="button" onclick="_clockIn()" class="mybutton" id="clockIn" >Clock In</button>
             <br>
-            <button type="button" onclick="_clockOut()" class="mybutton" id="clockOut" style="width:40%;display:block;margin:0 auto;">Clock Out</button>
+            <button type="button" onclick="_clockOut()" class="mybutton" id="clockOut" >Clock Out</button>
             <input hidden readonly value="" id="clocked" name="clocked">
             <h3 id="score"></h3>
             <h3>Name:
-              <input readonly style="width:60%" type="custom" name="student_name" id="name">
+              <input readonly type="custom" name="student_name" id="name">
             </h3>
             <p class="login-p" style="text-align:center;font-size:20px;">Change Name: </p>
-            <input type="name" id="nameInput" style="display:block;margin:0 auto;">
+            <input type="name" id="nameInput" class="inputs">
             <br>
-            <button type="button" class="mybutton" style="width:40%;display:block;margin:0 auto;" id="btnUpdate">Update Name</button>
+            <br>
+            <button type="button" class="mybutton" id="btnUpdate">Update Name</button>
             <br>
             <h3>Email:
-              <input readonly style="width:70%" type="custom" name="email" id="email">
+              <input readonly type="custom" name="email" id="email">
               <img src="pictures/x-mark-3-512.png" id="verification1" class="ok"><img src="pictures/ok-512.png" id="verification2" class="x-mark">
             </h3>
             <p id="sendVerifyEmail" onclick="sendVerificationEmail()" class="verifyEmail">Send Verification Email</p>
@@ -73,11 +74,10 @@
             <button type="button" style="width:20%;display:block;margin:0 auto;" id="btnUpdate">Update Email</button>
             -->
           </form>
-          <p id="adminview" style="text-align:center;font-size:20px;">For Admins:</p>
-          <hr width="20%">
-          <a href="manager-page.html">
-              <p style="text-align:center;font-size:20px;" id="adminpage">Reports and Admin Manager</p>
-          </a>
+          <br>
+          <h3 id="adminview" >For Admins:</h3>
+          <hr width="45%">
+          <button type="button" id="adminpage" class="mybutton" onclick="window.location.href = 'manager-page.html';">Reports and Admin Manager</button>
 
         </div>
       </div>
