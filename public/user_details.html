@@ -114,15 +114,24 @@
             var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
           }
 
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+
           var hours = today.getHours();
           hours = ((hours + 11) % 12 + 1);
-          var time = hours + ":" + today.getMinutes() + ":" + today.getSeconds();
+          var time = hours + ":" + m + ":" + s;
 
           document.getElementById("date").value = date;
           document.getElementById("time").value = time;
 
           // call this function again in 1000ms
           setTimeout(updateClock, 1000);
+        }
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
         }
 
         updateClock();
