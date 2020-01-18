@@ -5,15 +5,15 @@ var fs = firebase.firestore();
 toastr.options = {
   "closeButton": false,
   "debug": false,
-  "newestOnTop": true,
+  "newestOnTop": false,
   "progressBar": false,
   "positionClass": "toast-top-right",
-  "preventDuplicates": true,
+  "preventDuplicates": false,
   "onclick": null,
-  "showDuration": "2600",
+  "showDuration": "300",
   "hideDuration": "1000",
-  "timeOut": "2600",
-  "extendedTimeOut": "1500",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
@@ -25,7 +25,6 @@ toastr.options = {
 document.getElementById("btnSignUp").addEventListener('click', e=>{
   const email = document.getElementById("email").value;
   const pass = document.getElementById("password").value;
-  console.log("click");
   var valid = validateForm();
   if(valid == true) {
     console.log("valid");
@@ -46,26 +45,20 @@ function validateForm() {
 
   if(dispName == "") {
     toastr["error"]("Please enter your full name");
-    console.log("No name entered");
     return false;
   } else if(email == "" || !(re.test(String(email).toLowerCase()))) {
     toastr["error"]("Invalid email");
-    console.log("Invalid Email");
     return false;
   } else if(vemail == "" || vemail != email) {
     toastr["error"]("Emails are not the same");
-    console.log("Invalid Verify Email");
     return false;
   } else if(pass.length < 8 || pass == "") {
-    console.log("Invalid Password");
     toastr["error"]("Invalid password, password must have at least 8 characters");
     return false;
   } else if(vpass != pass || vpass == "") {
-    console.log("Invalid Verify Password");
     toastr["error"]("Passwords are not the same");
     return false;
   } else {
-    console.log("Valid Registration");
     return true;
   }
 }
