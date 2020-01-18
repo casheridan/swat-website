@@ -349,3 +349,8 @@ input[type=custom] {
   border-radius: 4px;
   cursor: pointer;
 }
+
+form .error {
+  color: #ff0000;
+  font-family: sans-serif;
+}
