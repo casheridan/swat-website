@@ -1,13 +1,34 @@
 var db = firebase.firestore();
 var rt = firebase.database();
 
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
 // This is the sign in system here, it sends an observer to the console and
 // the console checks the verification of the sent params and decides there
 document.getElementById("btnLogin").addEventListener('click', e=>{
-  const email = document.getElementById("email").value;
-  const pass = document.getElementById("password").value;
-  const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
-  promise.catch(e=>{ console.log(e.massage)})
+  const email = $('#email').val();
+  const pass = $('#password').val();
+  var valid = validateForm();
+  if(valid == true) {
+    const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+    promise.catch(e=>{ console.log(e.massage); toastr["error"]("Incorrect username or password")})
+  }
 })
 
 document.getElementById("email").addEventListener("keyup", function(event) {
@@ -27,6 +48,25 @@ document.getElementById("password").addEventListener("keyup", function(event) {
     promise.catch(e=>{ console.log(e.massage)})
   }
 })
+
+function validateForm() {
+  var email, pass;
+  email = $('#email').val();
+  pass = $('#password').val();
+
+  if(email == "" && pass == "") {
+    toastr["error"]("Please enter your email & password");
+    return false;
+  } else if(email == "") {
+    toastr["error"]("Please enter your email");
+    return false;
+  } else if(pass == "") {
+    toastr["error"]("Please enter your password");
+    return false;
+  } else {
+    return true;
+  }
+}
 
 firebase.auth().onAuthStateChanged(user=>{
   if(user){
