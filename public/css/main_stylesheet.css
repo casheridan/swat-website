@@ -108,6 +108,10 @@ body {
   height:24px;
 }
 
+.responsive {
+  max-width: 100%;
+}
+
 h3 {
   font-family: sans-serif;
   font-size: 25px;
