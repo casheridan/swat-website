@@ -5,9 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" href="pictures/Icon.png">
       <link rel="stylesheet" href="css/main_stylesheet.css">
+      <link rel="stylesheet" href="css/overrides.css">
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
       <title>S.W.A.T. 1806 | Manager Page</title>
+      <script src="src/jquery.min.js"></script>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -16,6 +18,8 @@
       <!-- Add Firebase products that you want to use -->
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -26,15 +30,15 @@
         <a class="login-nav" id="login-nav" href="login.html">Login</a>
       </div>
 
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="home.html">Home</a>
-          <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
-          <a href="media.html">Media</a>
-          <a href="sponsors.html">Sponsors</a>
-          <a href="history-page.html">History</a>
-          <a href="newsletters.html">Newsletters</a>
-        </div>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="home.html">Home</a>
+        <a href="history-page.html">History</a>
+        <!-- <a href="media.html">Media</a> -->
+        <a href="sponsors.html">Sponsors</a>
+        <a href="#" style="overflow:hidden;white-space: nowrap;">About Us</a>
+        <a href="newsletters.html">Newsletters</a>
+      </div>
 
         <br>
         <br>
@@ -51,8 +55,16 @@
         <br>
         <br>
         <h3>Manage Students & Admins: <a href="admin-page.html">Manage</a></h3>
-
-
+        <br>
+        <br>
+        <div style="text-align:center">
+          <h3>Submit PDF File to Newsletters(Once you do this this can't be undone): </h3>
+          <label class="upload-group">
+            <h3 style="color:black">Upload PDF</h3>
+            <input type="file" class="upload-group" id="file">
+          </label>
+          <button type="button" class="uploadbutton" id="uploadButton" onclick="uploadFile()">Submit</button>
+        </div>
         <br/>
         <br/>
         <br/>
@@ -74,5 +86,6 @@
 
       <script src="src/firebase_config.js"></script>
       <script src="src/admin-comps_manage.js"></script>
+      <script src="src/newsletter_handler.js"></script>
       <script src="src/auth_check.js"></script>
     </html>

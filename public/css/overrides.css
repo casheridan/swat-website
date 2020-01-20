@@ -1,0 +1,26 @@
+label.upload-group {
+  width: 100px;
+  height: 40px;
+  color: white;
+  padding: 5 5 5 5;
+  text-align: center;
+  background-color: #4CAF50;
+}
+
+button.uploadbutton {
+  width: 30%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 18px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input#file {
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+  z-index: -1;
+}
