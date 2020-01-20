@@ -27,6 +27,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
  ## Acknowledgments
 * All of this was made possible by Google Firebase
 
+* [FIRST (For Inspiration and Recognition of Science and Technology)](https://www.firstinspires.org/)
+
 * I got this idea from the fact that we just had paper signing in and the way to get off the books wasn't 
   efficient and we would miss people and or not know how many hours they had put into actually attending robotics. 
   Also we needed to get the name of Team 1806 S.W.A.T. out to the public and a way to give people that support S.W.A.T. 
