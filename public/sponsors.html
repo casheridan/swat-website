@@ -8,6 +8,7 @@
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
       <title>S.W.A.T. 1806 | Sponsors</title>
+      <script src="src/jquery.min.js"></script>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -35,27 +36,59 @@
         <a href="newsletters.html">Newsletters</a>
       </div>
 
-        <p>Sponsors</p>
+      <div style="width:40%;margin:100px auto;text-align:center">
+        <input type="password" id="passwordbox">
+        <div id="the-area"></div>
+      </div>
 
-        <br/>
-        <br/>
-        <br/>
-        <footer>
-          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
-        </footer>
+      <br/>
+      <br/>
+      <br/>
+      <footer>
+        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+      </footer>
 
-      </body>
+    </body>
+    <script>
+      $('#passwordbox').hide();
+      var Utility = Utility || {};
+      Utility.RegisterKeyPress = function (ctrl) {
+          //keyCodes for Alt(18) and r(82)
+          var codeset = { 84: false, 73: false, 77: false, 69: false };
 
-      <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
+          //Tracking the Key down & Key up events
+          $(document).on('keydown', function (e) {
+              if (e.keyCode in codeset) {
+                  codeset[e.keyCode] = true;
+                  if (codeset[84] && codeset[73] && codeset[77] && codeset[69]) {
+                      $(ctrl).show();
+                  }
+              }
+          }).on('keyup', function (e) {
+              if (e.keyCode in codeset) {
+                  codeset[e.keyCode] = false;
+              }
+          });
+      };
+      Utility.RegisterKeyPress('#passwordbox');
+      document.getElementById('passwordbox').addEventListener("keyup", function(event) {
+        if(event.keyCode == 13 && $('#passwordbox').val() == "thankyou"){
+          $('#passwordbox').hide();
+          $('#the-area').append('<p>This website was designed, concepted, and created by Christian Sheridan. This site is also made possible by Firebase</p><img src="pictures/secret.jpg" height="105" width="100" style="margin-right:10px"><img src="pictures/firebase-image.png" height="105" width="100">');
         }
+      });
+    </script>
 
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-        }
-      </script>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
 
-      <script src="src/firebase_config.js"></script>
-      <script src="src/auth_check.js"></script>
-    </html>
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+
+    <script src="src/firebase_config.js"></script>
+    <script src="src/auth_check.js"></script>
+  </html>
