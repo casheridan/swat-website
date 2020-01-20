@@ -20,6 +20,10 @@
   
   See also the list of [contributors](https://github.com/casheridan/swat-website/contributors) who participated in this project.
   
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/casheridan/swat-website/blob/master/LICENSE.md) file for details
+  
  ## Acknowledgments
 * All of this was made possible by Google Firebase
 
