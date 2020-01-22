@@ -285,3 +285,25 @@ form .error {
   color: #ff0000;
   font-family: sans-serif;
 }
+
+.youtube-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.cont-left {
+  float: left;
+  width: 50%;
+  margin-right: -3px;
+  margin-left: 3px;
+  padding-bottom: 500em;
+  margin-bottom: -500em;
+}
+
+.cont-right {
+  float: left;
+  width: 50%;
+  margin-right: -1px;
+  padding-bottom: 500em;
+  margin-bottom: -500em;
+}
