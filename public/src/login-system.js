@@ -90,7 +90,7 @@ firebase.auth().onAuthStateChanged(user=>{
         })
       }
     })
-    setTimeout(function(){window.location.href = 'home.html'}, 500)
+    setTimeout(function(){window.location.href = 'index.html'}, 500)
   } else {
     document.getElementById("navbar-user").classList.add('hide')
     document.getElementById("login_pic-nav").classList.remove('hide')

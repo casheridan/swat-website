@@ -102,6 +102,6 @@ firebase.auth().onAuthStateChanged(user=>{
       window.localStorage.setItem("swatuseridentification", jObj);
     }
 
-    setTimeout(function(){window.location.href = 'home.html'}, 500);
+    setTimeout(function(){window.location.href = 'index.html'}, 500);
   }
 })

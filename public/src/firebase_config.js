@@ -1,12 +1,13 @@
 // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCTZd9Va6rTmpnIvrw9RhRHGKl0N5PZ86w",
-    authDomain: "swat-1806-website.firebaseapp.com",
-    databaseURL: "https://swat-1806-website.firebaseio.com",
-    projectId: "swat-1806-website",
-    storageBucket: "swat-1806-website.appspot.com",
-    messagingSenderId: "976295716225",
-    appId: "1:976295716225:web:89bc8fd2cbc14a80373480"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyDP3NWuN9mzq_zOAcgh-co4PsN8KxSCCaY",
+  authDomain: "team1806-website.firebaseapp.com",
+  databaseURL: "https://team1806-website.firebaseio.com",
+  projectId: "team1806-website",
+  storageBucket: "team1806-website.appspot.com",
+  messagingSenderId: "286451823373",
+  appId: "1:286451823373:web:34356b68e0c212428f7644",
+  measurementId: "G-GSJVPT54SY"
+};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

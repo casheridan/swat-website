@@ -38,7 +38,7 @@ function isAdmin(doc){
   }
   else {
     console.log("you are not an admin");
-    window.location.href = 'home.html'
+    window.location.href = 'index.html'
   }
 }
 
