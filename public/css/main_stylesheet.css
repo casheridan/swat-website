@@ -167,7 +167,23 @@ footer {
 }
 
 .embeds {
+  overflow: hidden;
+  width: 100%;
   text-align:center !important;
+  margin: 50px auto;
+}
+
+.embed {
+  width: fit-content;
+  display: inline-block;
+}
+
+#face {
+  margin-right: 50px;
+}
+
+#twit {
+  margin-left: 50px;
 }
 
 /* Login styling */
