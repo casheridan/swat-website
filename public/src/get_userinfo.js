@@ -100,7 +100,7 @@ function updateUserProfile() {
 document.getElementById("btnLogOut").addEventListener('click', e=>{
   firebase.auth().signOut();
   console.log('logged out');
-  window.location.href = 'home.html';
+  window.location.href = 'index.html';
 })
 
 function sendVerificationEmail() {
