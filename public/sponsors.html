@@ -30,6 +30,7 @@
 
       <!-- Add Firebase products that you want to use -->
       <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+      <script src="src/firebase_config.js"></script>
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -44,6 +45,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a href="history-page.html">History</a>
+        <a href="awards-page.html">Awards</a>
         <!-- <a href="media.html">Media</a> -->
         <a href="#">Sponsors</a>
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
@@ -51,12 +53,13 @@
       </div>
 
       <br>
+      <h3>If you would like to make a contribution, please click the button below. Every dollar counts!</h3>
+      <div style="width:40%;margin:50px auto">
+        <button type="button" class="donatebutton" onclick="alert('On the next page, please enter &quot;swat robotics&quot; in the text box to send the donation to us.');window.open().location.href = 'https://smithville.revtrak.net/smithville-educational-foundation/#/v/SEFDother';"><p style="font-size:40px">Donate to S.W.A.T.</p></button>
+      </div>
       <br>
-      <h3>The future is promising...</h3>
-      <h3>Sponsor Page Coming Soon!</h3>
+      <h3>The team is accessing our records. Please check back soon!</h3>
       <br>
-      <h3>In the meantime, will you consider donating?</h3>
-
       <table>
         <!-- <tr>
           <th style="background-color:white;">White</th>
@@ -106,9 +109,7 @@
           <td>Platte Valley Bank</td>
         </tr> -->
       </table>
-      <div style="width:40%;margin:50px auto">
-        <button type="button" class="mybutton" onclick="alert('On the next page, please enter &quot;swat robotics&quot; in the text box to send the donation to us.');window.open().location.href = 'https://smithville.revtrak.net/smithville-educational-foundation/#/v/SEFDother';">Donate to S.W.A.T.</button>
-      </div>
+
 
       <div style="width:40%;margin:100px auto;text-align:center">
         <input type="password" id="passwordbox">
@@ -161,6 +162,5 @@
       }
     </script>
 
-    <script src="src/firebase_config.js"></script>
-    <script src="src/auth_check.js"></script>
+    <script async src="src/auth_check.js"></script>
   </html>

@@ -8,7 +8,8 @@
       <link rel="stylesheet" href="css/timeline.css">
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
-      <title>S.W.A.T. 1806 | Robots</title>
+      <title>S.W.A.T. 1806 | History</title>
+      <script src="src/jquery.min.js"></script>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -16,6 +17,7 @@
 
       <!-- Add Firebase products that you want to use -->
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+      <script src="src/firebase_config.js"></script>
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -30,6 +32,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a href="#">History</a>
+        <a href="awards-page.html">Awards</a>
         <!-- <a href="media.html">Media</a> -->
         <a href="sponsors.html">Sponsors</a>
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
@@ -37,28 +40,36 @@
       </div>
 
         <div class="timeline">
+          <div class="container left">
+            <div class="content">
+                <img class="responsive" src="pictures/robots/game/20.png" width="200" height="200">
+              <div class="cont">
+                <img class="responsive" src="pictures/robots/game/field/2020-game.png" style="margin-top:15px">
+                <h2>2020: Infinite Recharge</h2>
+                <h4>Game Description:</h4>
+                <p>In INFINITE RECHARGE&trade;, two alliances work to protect FIRST City from approaching asteroids caused by a distant space skirmish. Each Alliance, along with their trusty droids, race to collect and score Power Cells in order to energize their Shield Generator for maximum protection. To activate stages of the Shield Generator, droids manipulate their Control Panels after scoring a specific number of Power Cells. Near the end of the match, droids race to their Rendezvous Point to get their Shield Generator operational in order to protect the city!</p>
+                <h4>Description of Robot:</h4>
+                <p>Currently being built...</p>
+              </div>
+            </div>
+          </div>
           <div class="container right">
             <div class="content">
-              <img class="responsive" src="pictures/robots/game/20.png" width="200" height="200"><img class="responsive" src="pictures/robots/game/field/2020-game.png" style="margin-top:15px">
-              <h2>2020: Infinite Recharge</h2>
-              <h4>Game Description:</h4>
-              <p>In INFINITE RECHARGE&trade;, two alliances work to protect FIRST City from approaching asteroids caused by a distant space skirmish. Each Alliance, along with their trusty droids, race to collect and score Power Cells in order to energize their Shield Generator for maximum protection. To activate stages of the Shield Generator, droids manipulate their Control Panels after scoring a specific number of Power Cells. Near the end of the match, droids race to their Rendezvous Point to get their Shield Generator operational in order to protect the city!</p>
-              <h4>Description of Robot:</h4>
-              <p>Currently being built...</p>
+              <div class="pic">
+                <img class="responsive" src="pictures/robots/game/19.png" width="200" height="200">
+              </div>
+              <div class="cont">
+                <img class="responsive" src="pictures/robots/game/field/2019-game.jpg" style="margin-top:15px">
+                <h2>2019: Deep Space</h2>
+                <h4>Game Description:</h4>
+                <p>DESTINATION: DEEP SPACE finds FIRST Robotics Competition teams collecting samples on Planet Primus. Two competing alliances will combat unpredictable terrain and weather patterns, making remote robot operation essential to their mission on the planet. With only two minutes and thirty seconds until liftoff, the alliances must gather as many cargo pods as possible and prepare their spaceships for departure before the next sandstorm arrives.</p>
+                <h4>Description of Robot:</h4>
+                <p>The 2019 robot "Reboot" had an active wheel intake and had friction and mechano wheels. "Reboot" had a elevator system able to shoot the cargo into the three different levels on the rocket. The robot had vision traking for the reflective tape on the feeder station.</p>
+                <img class="responsive" src="pictures/robots/19robot.jpg">
+              </div>
             </div>
           </div>
           <div class="container left">
-            <div class="content">
-              <img class="responsive" src="pictures/robots/game/19.png" width="200" height="200"><img class="responsive" src="pictures/robots/game/field/2019-game.jpg" style="margin-top:15px">
-              <h2>2019: Deep Space</h2>
-              <h4>Game Description:</h4>
-              <p>DESTINATION: DEEP SPACE finds FIRST Robotics Competition teams collecting samples on Planet Primus. Two competing alliances will combat unpredictable terrain and weather patterns, making remote robot operation essential to their mission on the planet. With only two minutes and thirty seconds until liftoff, the alliances must gather as many cargo pods as possible and prepare their spaceships for departure before the next sandstorm arrives.</p>
-              <h4>Description of Robot:</h4>
-              <p>The 2019 robot "Reboot" had an active wheel intake and had friction and mechano wheels. "Reboot" had a elevator system able to shoot the cargo into the three different levels on the rocket. The robot had vision traking for the reflective tape on the feeder station.</p>
-              <img class="responsive" src="pictures/robots/19robot.jpg">
-            </div>
-          </div>
-          <div class="container right">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/18.png" width="200" height="150"><img class="responsive" src="pictures/robots/game/field/2018-game.png" style="margin-top:15px">
               <h2>2018: Power Up</h2>
@@ -69,7 +80,7 @@
               <img class="responsive" src="pictures/robots/18robot.jpg">
             </div>
           </div>
-          <div class="container left">
+          <div class="container right">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/17.png"><img class="responsive" src="pictures/robots/game/field/2017-game.png" style="margin-top:15px">
               <h2>2017: First Steamworks</h2>
@@ -81,7 +92,7 @@
               <div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/ExSZoj01f_Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
           </div>
-          <div class="container right">
+          <div class="container left">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/16_1.jpg"><img class="responsive" src="pictures/robots/game/field/2016-game.jpg" style="margin-top:15px">
               <h2>2016: First Stronghold</h2>
@@ -93,7 +104,7 @@
               <div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZOSIjUNg-lA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
           </div>
-          <div class="container left">
+          <div class="container right">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/15.png"><img class="responsive" src="pictures/robots/game/field/2015-game.jpg" style="margin-top:15px">
               <h2>2015: Recycle Rush</h2>
@@ -104,7 +115,7 @@
               <img class="responsive" src="pictures/robots/15robot.jpg">
             </div>
           </div>
-          <div class="container right">
+          <div class="container left">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/14.png"><img class="responsive" src="pictures/robots/game/field/2014-game_orig.jpg" style="margin-top:15px">
               <h2>2014: Aerial Assist</h2>
@@ -115,7 +126,7 @@
               <img class="responsive" src="pictures/robots/14robot.jpg">
             </div>
           </div>
-          <div class="container left">
+          <div class="container right">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/13_orig.jpg"><img class="responsive" src="pictures/robots/game/field/2013-game_orig.jpg" style="margin-top:15px">
               <h2>2013: Ultimate Ascent</h2>
@@ -126,7 +137,7 @@
               <img class="responsive" src="pictures/robots/13robot.png">
             </div>
           </div>
-          <div class="container right">
+          <div class="container left">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/12_orig.jpg"><img class="responsive" src="pictures/robots/game/field/2012-game.jpg" style="margin-top:15px">
               <h2>2012: Rebound Rumble</h2>
@@ -137,19 +148,19 @@
               <img class="responsive" src="pictures/robots/12robot.png">
             </div>
           </div>
-          <div class="container left">
+          <div class="container right">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/11_orig.jpg"><img class="responsive" src="pictures/robots/game/field/2011-game_orig.jpg" style="margin-top:15px">
               <h2>2011: Logo Motion</h2>
               <h4>Game Description:</h4>
               <p>LOGO MOTION™ is played by two competing alliances on a flat 27 x 54 foot field. Each alliance consists of three robots. They compete to hang as many inflated plastic shapes (triangles, circles, and squares) on their grids as they can during a 2 minute and 15 second match. The higher the teams hang their game pieces on their scoring grid, the more points their alliance receives. The match begins with one 15-second Autonomous Period in which robots operate independently of driver inputs and must hang Ubertubes to score extra points. For the rest of the match, drivers control robots and try to maximize their alliance score by hanging as many logo pieces as possible. Any logo piece hung on the same peg as an Ubertube receives double points. If teams assemble the logo pieces on their scoring grids to form the FIRST® logo (triangle, circle, square, in a horizontal row in that order), the points for the entire row are doubled. The match ends with robots deploying minibots, small electro-mechanical assemblies that are independent of the host.</p>
               <h4>Description of Robot:</h4>
-              <p>The 2011 S.W.A.T. robot uses an advanced drive system called crab drive allowing the robot omnidirectional movement. Crab drive uses rotating wheel modules to move forward, backward, left, right, and any angle in-between. Magnetic encoders allows on the arm allows the robot to place tubes on the rack autonomously during the first 15 seconds of the game. The main robot deploys a mini-bot to climb a 10 foot high tower to score bonus points in the last 10 seconds of the game.
+              <p>The 2011 S.W.A.T. robot uses an advanced drive system called crab drive allowing the robot omnidirectional movement. Crab drive uses rotating wheel modules to move forward, backward, left, left, and any angle in-between. Magnetic encoders allows on the arm allows the robot to place tubes on the rack autonomously during the first 15 seconds of the game. The main robot deploys a mini-bot to climb a 10 foot high tower to score bonus points in the last 10 seconds of the game.
               </p>
               <img class="responsive" src="pictures/robots/11robot.png">
             </div>
           </div>
-          <div class="container right">
+          <div class="container left">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/10.jpg"><img class="responsive" src="pictures/robots/game/field/2010-game_orig.jpg">
               <h2>2010: Breakaway</h2>
@@ -160,7 +171,7 @@
               <img class="responsive" src="pictures/robots/10robot_orig.png">
             </div>
           </div>
-          <div class="container left">
+          <div class="container right">
             <div class="content">
               <img class="responsive" src="pictures/robots/game/09_orig.jpg"><img class="responsive" src="pictures/robots/game/field/2009-game.jpg" width="320" height="150" style="margin-top:15px">
               <h2>2009: Lunacy</h2>
@@ -171,7 +182,7 @@
               <img class="responsive" src="pictures/robots/09robot_orig.png">
             </div>
           </div>
-          <div class="container right">
+          <div class="container left">
             <div class="content">
               <img src="pictures/robots/game/08_orig.jpg" class="responsive"><img class="responsive" src="pictures/robots/game/field/2008-game.jpg" width="318" height="178" style="margin-top:15px">
               <h2>2008: First Overdrive</h2>
@@ -185,7 +196,7 @@
               <img class="responsive" src="pictures/robots/08robot.png">
             </div>
           </div>
-          <div class="container left">
+          <div class="container right">
             <div class="content">
               <img src="pictures/robots/game/07.jpg" class="responsive"><img class="responsive" src="pictures/robots/game/field/2007-game.jpg" width="318" height="178">
               <h2>2007: Rack 'N' Roll</h2>
@@ -196,7 +207,7 @@
               <img class="responsive" src="pictures/robots/07robot.png">
             </div>
           </div>
-          <div class="container right">
+          <div class="container left">
             <div class="content">
               <img src="pictures/robots/game/06_orig.jpg" width="110px" height="140px" class="responsive"><img class="responsive" src="pictures/robots/game/field/2006-game_orig.jpg" width="340" height="190" style="margin-left:10px">
               <h2>2006: Aim High</h2>
@@ -207,8 +218,7 @@
               <img class="responsive" src="pictures/robots/06robot_orig.png" width="261" height="361">
             </div>
           </div>
-          <div class="container left">
-          </div>
+          <div class="container right"></div>
         </div>
 
         <br/>
@@ -229,7 +239,6 @@
           document.getElementById("mySidenav").style.width = "0";
         }
       </script>
-
-      <script src="src/firebase_config.js"></script>
-      <script src="src/auth_check.js"></script>
+      <script src="src/expand.js"></script>
+      <script async src="src/auth_check.js"></script>
     </html>

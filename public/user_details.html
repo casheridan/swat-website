@@ -10,9 +10,9 @@
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
       <title>S.W.A.T. 1806 | User Profile</title>
-      <script src="src/jquery.min.js"></script>
-      <script src="src/ipChecker.js"></script>
-      <script src="src/toastr.js"></script>
+      <script async src="src/jquery.min.js"></script>
+      <script async src="src/ipChecker.js"></script>
+      <script async src="src/toastr.js"></script>
     </head>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -22,6 +22,7 @@
       <script SameSite="strict" src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+      <script src="src/firebase_config.js"></script>
 
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
@@ -36,6 +37,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a href="history-page.html">History</a>
+        <a href="awards-page.html">Awards</a>
         <!-- <a href="media.html">Media</a> -->
         <a href="sponsors.html">Sponsors</a>
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
@@ -74,7 +76,7 @@
             <p id="sendVerifyEmail" onclick="sendVerificationEmail()" class="verifyEmail">Send Verification Email</p>
             <br>
             <p class="login-p" style="text-align:center;font-size:20px;">Change Email:</p>
-            <button type="button" class="mybutton" id="myBtn">Reset Password</button>
+            <button type="button" class="mybutton" id="myBtn">Change Email</button>
 
           </form>
           <br>
@@ -151,8 +153,7 @@
 
         updateClock();
       </script>
-      <script src="src/firebase_config.js"></script>
-      <script src="src/admin-system.js"></script>
-      <script src="src/modal2.js"></script>
-      <script src="src/get_userinfo.js"></script>
+      <script async src="src/admin-system.js"></script>
+      <script async src="src/modal2.js"></script>
+      <script async src="src/get_userinfo.js"></script>
     </html>

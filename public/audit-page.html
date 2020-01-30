@@ -18,14 +18,21 @@
         width: 80%;
       }
 
+      tr {
+        min-width: 45%;
+      }
+
       td, th {
-        border: 2px solid #dddddd;
         text-align: left;
         padding: 8px;
       }
 
+      td {
+        border-top: 1px solid #ddd;
+      }
+
       tr:nth-child(even) {
-        background-color: #dddddd;
+        background-color: #f9f9f9;
       }
     </style>
     <body>
@@ -35,6 +42,7 @@
       <!-- Add Firebase products that you want to use -->
       <script SameSite="strict" src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script SameSite="strict" src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+      <script src="src/firebase_config.js"></script>
 
 
       <div class="fixedbar">
@@ -50,6 +58,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a href="history-page.html">History</a>
+        <a href="awards-page.html">Awards</a>
         <!-- <a href="media.html">Media</a> -->
         <a href="sponsors.html">Sponsors</a>
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
@@ -79,7 +88,6 @@
         </footer>
 
       </body>
-      <script src="src/firebase_config.js"></script>
       <script id="script">
         // ID of the Google Spreadsheet
         var spreadsheetID = "1LZH0l6-1vHG1OAmuxuhRObXbInrqhU6Bc_K-rYcfaOc";
@@ -106,6 +114,6 @@
           document.getElementById("mySidenav").style.width = "0";
         }
       </script>
-      <script src="src/admin-comps_manage.js"></script>
-      <script src="src/auth_check.js"></script>
+      <script async src="src/admin-comps_manage.js"></script>
+      <script async src="src/auth_check.js"></script>
     </html>
