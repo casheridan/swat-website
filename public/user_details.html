@@ -22,8 +22,9 @@
       <script SameSite="strict" src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+      <!-- Firebase config file for the console -->
       <script src="src/firebase_config.js"></script>
-
+      <!-- Fixednav -->
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
         <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
@@ -32,7 +33,7 @@
         <a href="#" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
         <a class="login-nav" id="login-nav" href="login.html">Login</a>
       </div>
-
+      <!-- Sidenav -->
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
@@ -43,9 +44,11 @@
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
         <a href="newsletters.html">Newsletters</a>
       </div>
+      <!-- Entire div consists of the user details -->
       <div class="outside_div">
         <div class="user-box">
           <form name="fromu1" id='submit_to_google_sheet'>
+            <!-- Clock in function -->
             <input readonly type="custom" id="date" name="date">
             <input readonly type="custom" id="time" name="time">
             <br>
@@ -55,6 +58,7 @@
             <button type="button" onclick="_clockOut()" class="mybutton" id="clockOut" >Clock Out</button>
             <input hidden readonly value="" id="clocked" name="clocked">
             <h3 id="score"></h3>
+            <!-- Name view and change -->
             <h3>Name:
               <input readonly type="custom" name="student_name" id="name">
             </h3>
@@ -64,11 +68,13 @@
             <br>
             <button type="button" class="mybutton" id="btnUpdate">Update Name</button>
             <br>
+            <!-- Email view and change -->
             <h3>Email:</h3>
             <div style="width:100%">
               <div style="display:inline-block;width:100%">
                 <input readonly type="custom" name="email" id="email">
               </div>
+              <!-- Email is/not verified -->
               <div style="display:inline-block">
                 <img src="pictures/x-mark-3-512.png" id="verification1" class="ok"><img src="pictures/ok-512.png" id="verification2" class="x-mark">
               </div>
@@ -77,13 +83,12 @@
             <br>
             <p class="login-p" style="text-align:center;font-size:20px;">Change Email:</p>
             <button type="button" class="mybutton" id="myBtn">Change Email</button>
-
           </form>
           <br>
+          <!-- Link to admin functions -->
           <h3 id="adminview" >For Admins:</h3>
           <hr width="45%">
           <button type="button" id="adminpage" class="mybutton" onclick="window.location.href = 'manager-page.html';">Reports and Admin Manager</button>
-
         </div>
       </div>
       <!-- The Modal -->
@@ -104,56 +109,65 @@
       <footer>
         <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
       </footer>
+    </body>
+    <!-- Sidenav functionality -->
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
 
-      </body>
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
 
-      <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
+    <!-- Above the fold Clock functionality -->
+    <script>
+      function updateClock() {
+        var today = new Date();
+
+        // Checks and gets the current date
+        if((today.getMonth()+1) <= 9 && today.getDate() <= 9) {
+          var date = today.getFullYear()+'/0'+(today.getMonth()+1)+'/0'+today.getDate();
+        } else if((today.getMonth()+1) <= 9) {
+          var date = today.getFullYear()+'/0'+(today.getMonth()+1)+'/'+today.getDate();
+        } else if(today.getDate() <= 9) {
+          var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/0'+today.getDate();
+        } else {
+          var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
         }
 
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-        }
-      </script>
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
 
-      <script>
-        function updateClock() {
-          var today = new Date();
+        // Converts 24 hour time to 12 hour time
+        var hours = today.getHours();
+        hours = ((hours + 11) % 12 + 1);
 
-          if((today.getMonth()+1) <= 9 && today.getDate() <= 9) {
-            var date = today.getFullYear()+'/0'+(today.getMonth()+1)+'/0'+today.getDate();
-          } else if((today.getMonth()+1) <= 9) {
-            var date = today.getFullYear()+'/0'+(today.getMonth()+1)+'/'+today.getDate();
-          } else if(today.getDate() <= 9) {
-            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/0'+today.getDate();
-          } else {
-            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-          }
+        var time = hours + ":" + m + ":" + s;
 
-          var m = today.getMinutes();
-          var s = today.getSeconds();
-          m = checkTime(m);
-          s = checkTime(s);
+        // Puts the gathered values to the input areas in the clock in system
+        document.getElementById("date").value = date;
+        document.getElementById("time").value = time;
 
-          var hours = today.getHours();
-          hours = ((hours + 11) % 12 + 1);
-          var time = hours + ":" + m + ":" + s;
+        // call this function again in 1000ms
+        setTimeout(updateClock, 1000);
+      }
 
-          document.getElementById("date").value = date;
-          document.getElementById("time").value = time;
+      // Adds 0s infront of single digit numbers in clock
+      function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+      }
 
-          // call this function again in 1000ms
-          setTimeout(updateClock, 1000);
-        }
-        function checkTime(i) {
-          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-          return i;
-        }
-
-        updateClock();
-      </script>
-      <script async src="src/admin-system.js"></script>
-      <script async src="src/modal2.js"></script>
-      <script async src="src/get_userinfo.js"></script>
-    </html>
+      updateClock();
+    </script>
+    <!-- Checks if admin or not -->
+    <script async src="src/admin-system.js"></script>
+    <!-- Change email modal -->
+    <script async src="src/modal2.js"></script>
+    <!-- The entire clocking system -->
+    <script async src="src/get_userinfo.js"></script>
+  </html>

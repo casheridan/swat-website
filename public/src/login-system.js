@@ -1,6 +1,9 @@
+// Reference to the firestore
 var db = firebase.firestore();
+// Reference to the realtime database
 var rt = firebase.database();
 
+// Options for toastr
 toastr.options = {
   "closeButton": false,
   "debug": false,
@@ -31,6 +34,7 @@ document.getElementById("btnLogin").addEventListener('click', e=>{
   }
 })
 
+// When the user hits enter in the email field, do a login check
 document.getElementById("email").addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
     const email = document.getElementById("email").value;
@@ -40,6 +44,7 @@ document.getElementById("email").addEventListener("keyup", function(event) {
   }
 })
 
+// When the user hits password in the email field, do a login check
 document.getElementById("password").addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
     const email = document.getElementById("email").value;
@@ -49,6 +54,7 @@ document.getElementById("password").addEventListener("keyup", function(event) {
   }
 })
 
+// Checks if the form is valid
 function validateForm() {
   var email, pass;
   email = $('#email').val();
@@ -68,20 +74,25 @@ function validateForm() {
   }
 }
 
+// When the user signs in add the user id and its user type to a JSON blob reference
 firebase.auth().onAuthStateChanged(user=>{
   if(user){
+    // Shows the logged in icons
     document.getElementById("navbar-user").classList.remove('hide')
     document.getElementById("login_pic-nav").classList.add('hide')
     document.getElementById("login-nav").classList.add('hide')
     var obj;
 
+    // Checks firestore for the signed in user
     db.collection('users').doc(user.uid).get().then(function(doc) {
       if (doc.exists) {
+        // Puts the data into a JSON blob and puts it in localStorage for later use
         obj = { uid: user.uid, userType: doc.data().userType };
         var jObj = JSON.stringify(obj);
         window.localStorage.setItem("swatuseridentification", jObj);
         var _user = window.localStorage.getItem("swatuseridentification");
         var _User = JSON.parse(_user);
+        // Sets the userType for the realtime database
         rt.ref('/users/' + _User.uid).child('userType').set(_User.userType);
       } else {
         db.collection('users').doc(userId).set({
@@ -92,6 +103,7 @@ firebase.auth().onAuthStateChanged(user=>{
     })
     setTimeout(function(){window.location.href = 'index.html'}, 500)
   } else {
+    // Shows the logged out icons
     document.getElementById("navbar-user").classList.add('hide')
     document.getElementById("login_pic-nav").classList.remove('hide')
     document.getElementById("login-nav").classList.remove('hide')

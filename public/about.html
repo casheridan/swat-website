@@ -15,8 +15,9 @@
 
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <!-- Firebase config file for the console -->
     <script src="src/firebase_config.js"></script>
-
+    <!-- Fixednav -->
     <div class="fixedbar">
       <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
       <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
@@ -25,7 +26,7 @@
       <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
       <a class="login-nav" id="login-nav" href="login.html">Login</a>
     </div>
-
+    <!-- Sidenav -->
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="index.html">Home</a>
@@ -51,6 +52,7 @@
       <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
     </footer>
   </body>
+  <!-- Sidenav functionality -->
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -60,6 +62,6 @@
       document.getElementById("mySidenav").style.width = "0";
     }
   </script>
-
-  <script async src="src/auth_check.js"></script>
+  <!-- Checks if signed in -->
+  <script src="src/auth_check.js"></script>
 </html>

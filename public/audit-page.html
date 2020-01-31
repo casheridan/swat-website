@@ -10,6 +10,7 @@
       <title>S.W.A.T. 1806 | Student Reports</title>
       <script src="src/jquery.min.js"></script>
     </head>
+    <!-- Styling for the spreadsheet table -->
     <style>
       table {
         font-family: arial, sans-serif;
@@ -42,9 +43,10 @@
       <!-- Add Firebase products that you want to use -->
       <script SameSite="strict" src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script SameSite="strict" src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+      <!-- Firebase config file for the console -->
       <script src="src/firebase_config.js"></script>
 
-
+      <!-- Fixednav -->
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
         <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
@@ -53,7 +55,7 @@
         <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
         <a class="login-nav" id="login-nav" href="login.html">Login</a>
       </div>
-
+      <!-- Sidenav -->
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
@@ -64,56 +66,60 @@
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
         <a href="newsletters.html">Newsletters</a>
       </div>
-        <br>
-        <br>
-        <br>
-        <a href="manager-page.html" style="margin-left:150px;font-size:20px;">← Back</a>
-        <br>
-        <br>
-        <br>
-        <table id="results">
-          <tr>
-            <th>Student Name</th>
-            <th>Clocked Value</th>
-            <th>Date Clocked</th>
-            <th>Time Clocked</th>
-          </tr>
-        </table>
+      <br>
+      <br>
+      <br>
+      <a href="manager-page.html" style="margin-left:150px;font-size:20px;">← Back</a>
+      <br>
+      <br>
+      <br>
+      <!-- Spreadsheet audit table -->
+      <table id="results">
+        <tr>
+          <th>Student Name</th>
+          <th>Clocked Value</th>
+          <th>Date Clocked</th>
+          <th>Time Clocked</th>
+        </tr>
+      </table>
 
-        <br>
-        <br>
-        <br>
-        <footer>
-          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
-        </footer>
+      <br>
+      <br>
+      <br>
+      <footer>
+        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+      </footer>
 
-      </body>
-      <script id="script">
-        // ID of the Google Spreadsheet
-        var spreadsheetID = "1LZH0l6-1vHG1OAmuxuhRObXbInrqhU6Bc_K-rYcfaOc";
+    </body>
+    <!-- Script to check json blob of google spreadsheet from url -->
+    <script id="script">
+      // ID of the Google Spreadsheet
+      var spreadsheetID = "1LZH0l6-1vHG1OAmuxuhRObXbInrqhU6Bc_K-rYcfaOc";
 
-        // Make sure it is public or set to Anyone with link can view
-        var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+      // Make sure it is public or set to Anyone with link can view
+      var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
 
-        $.getJSON(url, function(data) {
+      $.getJSON(url, function(data) {
 
-          var entry = data.feed.entry;
-          $(entry).each(function(){
-            // Column names are name, age, etc.
-            $('#results').append('<tr><td>'+this.gsx$studentname.$t+'</td><td>'+this.gsx$clocked.$t+'</td><td>'+this.gsx$date.$t+'</td><td>'+this.gsx$time.$t+'</td></tr>');
-          });
+        var entry = data.feed.entry;
+        $(entry).each(function(){
+          // Column names are name, age, etc.
+          $('#results').append('<tr><td>'+this.gsx$studentname.$t+'</td><td>'+this.gsx$clocked.$t+'</td><td>'+this.gsx$date.$t+'</td><td>'+this.gsx$time.$t+'</td></tr>');
         });
-      </script>
+      });
+    </script>
+    <!-- Sidenav functionality -->
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
 
-      <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-        }
-      </script>
-      <script async src="src/admin-comps_manage.js"></script>
-      <script async src="src/auth_check.js"></script>
-    </html>
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+    <!-- Checks if admin -->
+    <script async src="src/admin-comps_manage.js"></script>
+    <!-- Checks if signed in -->
+    <script src="src/auth_check.js"></script>
+  </html>

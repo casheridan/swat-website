@@ -9,9 +9,29 @@
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
       <title>S.W.A.T. 1806 | Home</title>
       <link rel="stylesheet" href="css/my-slider.css"/>
+      <script src="src/jquery.min.js"></script>
       <script src="src/ism-2.2.min.js"></script>
       <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     </head>
+    <style>
+      .infiniterecharge {
+        max-width:45%;
+        margin:auto;
+        visibility: hidden;
+      }
+
+      .fadeIn {
+          -webkit-animation: animat_show 1s;
+          animation: animat_show 1s;
+          visibility: visible !important;
+      }
+
+      @-webkit-keyframes animat_show{
+          0%{opacity:0}
+          100%{opacity:1}
+          0% {transform: translate(0,100px);}
+      }
+    </style>
     <body>
       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
@@ -19,7 +39,7 @@
       <!-- Add Firebase products that you want to use -->
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script src="src/firebase_config.js"></script>
-
+      <!-- Fixednav -->
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
         <a href="#" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
@@ -28,17 +48,19 @@
         <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
         <a class="login-nav" id="login-nav" href="login.html">Login</a>
       </div>
-
+      <!-- Sidenav -->
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">Home</a>
         <a href="history-page.html">History</a>
         <a href="awards-page.html">Awards</a>
+        <!-- This will be added later or changed to the blog -->
         <!-- <a href="media.html">Media</a> -->
         <a href="sponsors.html">Sponsors</a>
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
         <a href="newsletters.html">Newsletters</a>
       </div>
+      <!-- Above the fold image slideshow, pictures are stored in _u folder, to change the view angle (top, middle, or bottom) of the photo please refer to the my-slider.css file -->
       <div class="ism-slider" data-play_type="loop" id="my-slider">
         <ol>
           <li>
@@ -64,15 +86,17 @@
       <h1>S.W.A.T.</h1>
       <br>
       <h3>This years Game...</h3>
-      <div class="imagediv">
+      <div class="imagediv" style="background-color:#4CAF50">
         <a target="_new" href="https://www.firstinspires.org/robotics/frc/game-and-season">
-          <img src="pictures/FIRST-InfiniteRecharge-RGB_Primary-full-color.png" class="infiniterecharge">
+          <img src="pictures/FIRST-InfiniteRecharge-RGB_Primary-reverse.png" class="infiniterecharge">
         </a>
       </div>
+      <!-- This is the embed for the current years animation video -->
       <div class="iframe-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/gmiYWTmFRVE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <br>
+      <!-- Link to youtube div -->
       <div style="margin-bottom:10px;">
         <div class="youtube-container">
           <div class="cont-left">
@@ -85,8 +109,9 @@
           </div>
         </div>
       </div>
+
       <br>
-      <div class="">
+      <!-- Embedded Facebook and Twitter script and divs -->
       <script defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
       <div class="embeds">
         <div class="embed" id="face">
@@ -106,6 +131,30 @@
         <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
       </footer>
     </body>
+    <!-- This allows the game image to flyfade in on scroll to -->
+    <script>
+      function showImages(el) {
+          var windowHeight = jQuery( window ).height();
+          $(el).each(function(){
+              var thisPos = $(this).offset().top;
+
+              var topOfWindow = $(window).scrollTop();
+              if (topOfWindow + windowHeight - 200 > thisPos ) {
+                  $(this).addClass("fadeIn");
+              }
+          });
+      }
+
+      // if the image in the window of browser when the page is loaded, show that image
+      $(document).ready(function(){
+              showImages('.infiniterecharge');
+      });
+
+      // if the image in the window of browser when scrolling the page, show that image
+      $(window).scroll(function() {
+              showImages('.infiniterecharge');
+      });
+    </script>
 
     <script>
       function openNav() {
@@ -117,5 +166,10 @@
       }
     </script>
 
+    <!-- Script is a check for the fixednav at top for login purposes (possible rework may be necessary) -->
     <script src="src/auth_check.js"></script>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+			<script src="../ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.html"><\/script>')</script>
   </html>

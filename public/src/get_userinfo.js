@@ -1,11 +1,18 @@
 var user = firebase.auth().currentUser;
+// Realtime database reference
 var database = firebase.database().ref();
 var name, email, emailVerified;
+// Gets the stringified JSON blob from localStorage
 var _user = window.localStorage.getItem("swatuseridentification");
+// Parses stringified JSON blob into a JSON object
 var _User = JSON.parse(_user);
+// Sets the reference uid to the stored uid in localStorage
 var userId = _User.uid;
+
+// Does an initial query do to not getting information the first time
 var result = queryDatabase();
 
+// Toastr options
 toastr.options = {
   "closeButton": false,
   "debug": false,
@@ -24,6 +31,7 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
+// This calculates the total time (time since January 1st, 1979) and puts it to normal time: days, hours, minutes
 function calc(n){
   var num = n;
   var days = (num / 1440);
@@ -41,6 +49,7 @@ firebase.auth().onAuthStateChanged(user=>{
     email = user.email;
     emailVerified = user.emailVerified;
 
+    // Student time score, the total time in the realtime database
     firebase.database().ref('/users/' + userId).child('name').set(user.displayName);
     if(_User.userType != 0) {
       var ref = firebase.database().ref('/times/' + userId);
@@ -49,6 +58,7 @@ firebase.auth().onAuthStateChanged(user=>{
       })
     }
 
+    // Hides certain things in the form based on if the user is logged in and or verified
     document.getElementById("sendVerifyEmail").classList.add('hide');
     document.getElementById("name").value = name;
     document.getElementById("email").value = email;
@@ -69,6 +79,7 @@ firebase.auth().onAuthStateChanged(user=>{
     }
   }
   else{
+    // User is not logged in
     console.log("Not logged in.");
     document.getElementById("btnLogOut").classList.add('hide')
     document.getElementById("navbar-user").classList.add('hide')
@@ -77,10 +88,12 @@ firebase.auth().onAuthStateChanged(user=>{
   }
 })
 
+// Calls to update user profile
 document.getElementById("btnUpdate").addEventListener('click', e=>{
   updateUserProfile();
 })
 
+// When any values are changed in the form send the updates to all associated databases and auth params blob
 function updateUserProfile() {
       var userNow = firebase.auth().currentUser;
       userNow.updateProfile({
@@ -97,12 +110,14 @@ function updateUserProfile() {
       });
   }
 
+// Logs the user out and sends them back to the home page
 document.getElementById("btnLogOut").addEventListener('click', e=>{
   firebase.auth().signOut();
   console.log('logged out');
   window.location.href = 'index.html';
 })
 
+// Sends the verification email to the logged in user when called
 function sendVerificationEmail() {
   var user = firebase.auth().currentUser;
   user.sendEmailVerification().then(function() {
@@ -112,7 +127,7 @@ function sendVerificationEmail() {
   });
 }
 
-
+// Checks the value of "clocked" in the realtime database
 function queryDatabase() {
   var rtn;
   var databaseRef = database.child("users").child(userId).child("clocked");
@@ -125,7 +140,8 @@ function queryDatabase() {
 }
 
 var dif;
-
+// Calcualtes the clocked in and out time
+// Returns the difference between the two values
 function calcTime() {
   var dbUser = firebase.database().ref('/times/' + userId);
 
@@ -145,6 +161,7 @@ function calcTime() {
   });
 }
 
+// Sends the values of Name, Date, Time, and Clocked value to the google spreadsheet.
 function sendForm(isClockedIn) {
   var eleVal = isClockedIn == "true" ? "Clocked In" : "Clocked Out";
   document.getElementById("clocked").value = eleVal;
@@ -153,6 +170,8 @@ function sendForm(isClockedIn) {
   fetch(scriptURL, { method: 'POST', body: new FormData(form) });
 }
 
+// Constants for the google spreadsheet
+// To change the spreadsheet you must publish the sheets and have the necessary script in google scripts and the associated trigger.
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxii4b_fwf9YFx4clHl1HgL7bgClAt8QGDYSk8rwe9SExR6qidg/exec'
 const form = document.forms['submit_to_google_sheet']
 
@@ -180,12 +199,14 @@ function isOnCorrectNetwork(){
   return ((bLocal1 || bLocal2 || bLocal3) && (bPublic1 || bPublic2));
 }
 
+// Does a clock in check and the function
 function _clockIn() {
   toastr["info"]("Clocking In...");
   ipChecker.RefreshIP();
   setTimeout(function() {
     console.log('Checking Local IP', ipChecker.GetLocalIPAddress());
     console.log('Checking Public IP', ipChecker.GetPublicIPaddress());
+    // Checks if the user is on the school network
     if(!isOnCorrectNetwork()){
       toastr["error"]("You cannot clock in/out outside of SHS Network! Please connect to contine.");
       return;
@@ -197,6 +218,7 @@ function _clockIn() {
       toastr["warning"]("You are already clocked in!");
       return;
     }
+    // Sets the Clocked to true and shows a toastr notif
     var today = new Date();
     database.child("times").child(userId).child("ciTime").set(today.getTime());
     toastr["success"]("Clock In Successful");
@@ -204,12 +226,14 @@ function _clockIn() {
   }, 3000);
 }
 
+// Does a clock out check and the function
 function _clockOut() {
   toastr["info"]("Clocking Out...");
   ipChecker.RefreshIP();
   setTimeout(function() {
     console.log('Checking Local IP', ipChecker.GetLocalIPAddress());
     console.log('Checking Public IP', ipChecker.GetPublicIPaddress());
+    // Checks if the user is on the school network
     if(!isOnCorrectNetwork()){
       toastr["error"]("You cannot clock in/out outside of SHS Network! Please connect to contine.");
       return;
@@ -235,6 +259,7 @@ function _clockOut() {
       return totalTime = snapshot.val().totalTime;
     });
 
+    // Sets the calculated time to firebase realtime database
     if(!(clockIn == 0) && !(clockOut == 0)) {
 
       calcTime();
@@ -248,6 +273,7 @@ function _clockOut() {
         }, 500)
       }, 500);
     }
+    // Sets the Clocked to false and shows a toastr notif
     toastr["success"]("Clock Out Successful");
     sendForm("false");
   }, 3000);

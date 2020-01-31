@@ -21,76 +21,78 @@
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+      <!-- Firebase config file for the console -->
       <script src="src/firebase_config.js"></script>
+      <!-- Fixednav -->
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="#" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="#">Login</a>
+      </div>
+      <!-- Sidenav -->
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="history-page.html">History</a>
+        <a href="awards-page.html">Awards</a>
+        <!-- <a href="media.html">Media</a> -->
+        <a href="sponsors.html">Sponsors</a>
+        <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+        <a href="newsletters.html">Newsletters</a>
+      </div>
+      <!-- Form to send the password information to the js file -->
+      <div class="outside_div">
+        <form class="login-box">
+          <p class="login-p">Email:</p>
+          <input class="P-E_inputs" type="email" name="email" placeholder="Enter email" id="email"><br>
+          <p class="login-p">Password:</p>
+          <input class="P-E_inputs" type="password" name="password" placeholder="Enter password" id="password"><br>
+          <button type="button" class="P-E_inputs" id="myBtn">Reset Password</button>
+          <br>
+          <br>
+          <button type="button" id="btnLogin" class="mybutton">Login</button>
+          <br>
+          <br>
+          <button type="button" class="mybutton" onclick="window.location.href = 'register-page.html';">Create Account</button>
+          <br>
+          <br>
+        </form>
+      </div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
 
-        <div class="fixedbar">
-          <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
-          <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
-          <a href="#" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
-          <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
-          <a class="login-nav" id="login-nav" href="#">Login</a>
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Reset your password:</p>
+          <input class="P-E_inputs" type="email" placeholder="Enter account email..." id="reset_password">
+          <button type="button" id="btnRst" class="mybutton">Reset</button>
         </div>
 
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="index.html">Home</a>
-          <a href="history-page.html">History</a>
-          <a href="awards-page.html">Awards</a>
-          <!-- <a href="media.html">Media</a> -->
-          <a href="sponsors.html">Sponsors</a>
-          <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
-          <a href="newsletters.html">Newsletters</a>
-        </div>
+      </div>
 
-        <div class="outside_div">
-          <form class="login-box">
-            <p class="login-p">Email:</p>
-            <input class="P-E_inputs" type="email" name="email" placeholder="Enter email" id="email"><br>
-            <p class="login-p">Password:</p>
-            <input class="P-E_inputs" type="password" name="password" placeholder="Enter password" id="password"><br>
-            <button type="button" class="P-E_inputs" id="myBtn">Reset Password</button>
-            <br>
-            <br>
-            <button type="button" id="btnLogin" class="mybutton">Login</button>
-            <br>
-            <br>
-            <button type="button" class="mybutton" onclick="window.location.href = 'register-page.html';">Create Account</button>
-            <br>
-            <br>
-          </form>
-        </div>
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
+      <br/>
+      <br/>
+      <br/>
+      <footer>
+        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+      </footer>
 
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Reset your password:</p>
-            <input class="P-E_inputs" type="email" placeholder="Enter account email..." id="reset_password">
-            <button type="button" id="btnRst" class="mybutton">Reset</button>
-          </div>
+    </body>
+    <!-- JS for sidenav functionality -->
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
 
-        </div>
-
-        <br/>
-        <br/>
-        <br/>
-        <footer>
-          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
-        </footer>
-
-      </body>
-
-      <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-        }
-      </script>
-
-      <script async src="src/modal.js"></script>
-      <script async src="src/login-system.js"></script>
-    </html>
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+    <!-- Functionality for modal -->
+    <script async src="src/modal.js"></script>
+    <!-- Functionality for login -->
+    <script async src="src/login-system.js"></script>
+  </html>

@@ -1,12 +1,17 @@
+// Get the currently logged in user
 var user = firebase.auth().currentUser;
 
+// Gets stored JSON blob from localStorage
 var jObj = window.localStorage.getItem("swatuseridentification");
+// Parses JSON blob into usable object
 var obj = JSON.parse(jObj);
 
 firebase.auth().onAuthStateChanged(user=>{
     if(user){
+      // If the user is signed in check permissions
       isAdmin();
     } else {
+      // If not clocked in do nothing
       return;
     }
   })
@@ -14,7 +19,9 @@ firebase.auth().onAuthStateChanged(user=>{
 document.getElementById("adminpage").classList.add('hide');
 document.getElementById("adminview").classList.add('hide');
 
-function isAdmin(doc){
+// Checks if user is an admin if userType is an admin show admin abilities
+// if userType is not a student or admin (0), hide clocking system
+function isAdmin(){
   if(obj.userType == 2) {
     document.getElementById("adminpage").classList.remove('hide');
     document.getElementById("adminview").classList.remove('hide');

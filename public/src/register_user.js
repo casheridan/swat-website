@@ -1,7 +1,11 @@
+// Looks for the current signed in user
 var user = firebase.auth().currentUser;
+// Reference to the Realtime Database
 var rt = firebase.database();
+// Reference to the Firestore
 var fs = firebase.firestore();
 
+// Options for toastr
 toastr.options = {
   "closeButton": false,
   "debug": false,
@@ -34,6 +38,7 @@ document.getElementById("btnSignUp").addEventListener('click', e=>{
   }
 })
 
+// Checks if the form has all the correct information
 function validateForm() {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   var dispName, email, vemail, pass, vpass;
@@ -63,6 +68,8 @@ function validateForm() {
   }
 }
 
+// When the user finally registers it calls this function and creates the necessary
+// fields in firebase databases and makes a localStorage JSON blob for reference
 firebase.auth().onAuthStateChanged(user=>{
   if(user){
     var name = $('#text').val();
@@ -76,7 +83,8 @@ firebase.auth().onAuthStateChanged(user=>{
     var users = rt.ref('/users/' + user.uid);
 
     if($('input[name="studentcheck"]:checked').length > 0) {
-      //Student User
+      //Student user
+      // Creates fields on the realtime database and firestore
       var times = rt.ref('/times/' + user.uid);
       users.child('clocked').set('false');
       users.child('userType').set('1');
@@ -86,22 +94,25 @@ firebase.auth().onAuthStateChanged(user=>{
         userType: 1,
         name: name
       })
+      // Creates the JSON blob reference
       obj = { uid: user.uid, userType: 1 };
       var jObj = JSON.stringify(obj);
       window.localStorage.setItem("swatuseridentification", jObj);
     } else {
       //Normal User
+      // Creates fields on the realtime database and firestore
       fs.collection('users').doc(user.uid).set({
         userType: 0,
         name: name
       })
       users.child('userType').set('0');
       users.child('name').set(name);
+      // Creates the JSON blob reference
       obj = { uid: user.uid, userType: 0 };
       var jObj = JSON.stringify(obj);
       window.localStorage.setItem("swatuseridentification", jObj);
     }
-
+    // When finished go back to the main page
     setTimeout(function(){window.location.href = 'index.html'}, 500);
   }
 })

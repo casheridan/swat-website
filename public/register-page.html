@@ -20,8 +20,9 @@
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+      <!-- Firebase config file for the console -->
       <script src="src/firebase_config.js"></script>
-
+      <!-- Fixednav -->
       <div class="fixedbar">
         <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
         <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
@@ -30,7 +31,7 @@
         <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
         <a class="login-nav" id="login-nav" href="login.html">Login</a>
       </div>
-
+      <!-- Sidenav -->
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
@@ -41,50 +42,52 @@
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
         <a href="newsletters.html">Newsletters</a>
       </div>
-        <div class="outside_div">
-          <form name="registerForm" class="login-box">
-            <p class="login-hdr">Register Account</p>
-            <hr>
-            <br>
-            <p class="login-p">Name</p>
-            <input class="P-E_inputs" required type="text" name="dispName" placeholder="Enter name..." id="text"><br>
-            <br>
-            <p class="login-p">Email:</p>
-            <input class="P-E_inputs" required type="email" name="email" placeholder="Enter email..." id="email"><br>
-            <p class="login-p">Confirm Email:</p>
-            <input class="P-E_inputs" required type="email" name="email" placeholder="Enter email again..." id="vemail"><br>
-            <br>
-            <p class="login-p">Password:</p>
-            <input class="P-E_inputs" required type="password" name="password" placeholder="Enter password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
-            <p class="login-p">Verify Password:</p>
-            <input class="P-E_inputs" required type="password" name="password" placeholder="Enter password again..." id="vpassword"><br><br><hr><br>
-            <p "login-p">Check if member of S.W.A.T.</p><input type="checkbox" name="studentcheck" id="studentcheck">
-            <br>
-            <br>
-            <button type="button" class="mybutton" id="btnSignUp" href="index.html">Create User</button>
-            <br>
-            <br>
-          </form>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        <footer>
-          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
-        </footer>
+      <!-- Form and div for the register system -->
+      <div class="outside_div">
+        <form name="registerForm" class="login-box">
+          <p class="login-hdr">Register Account</p>
+          <hr>
+          <br>
+          <p class="login-p">Name</p>
+          <input class="P-E_inputs" required type="text" name="dispName" placeholder="Enter name..." id="text"><br>
+          <br>
+          <p class="login-p">Email:</p>
+          <input class="P-E_inputs" required type="email" name="email" placeholder="Enter email..." id="email"><br>
+          <p class="login-p">Confirm Email:</p>
+          <input class="P-E_inputs" required type="email" name="email" placeholder="Enter email again..." id="vemail"><br>
+          <br>
+          <p class="login-p">Password:</p>
+          <input class="P-E_inputs" required type="password" name="password" placeholder="Enter password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+          <p class="login-p">Verify Password:</p>
+          <input class="P-E_inputs" required type="password" name="password" placeholder="Enter password again..." id="vpassword"><br><br><hr><br>
+          <p "login-p">Check if member of S.W.A.T.</p><input type="checkbox" name="studentcheck" id="studentcheck">
+          <br>
+          <br>
+          <button type="button" class="mybutton" id="btnSignUp" href="index.html">Create User</button>
+          <br>
+          <br>
+        </form>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <footer>
+        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+      </footer>
 
-      </body>
+    </body>
+    <!-- Sidenav functionality -->
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
 
-      <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-        }
-      </script>
-
-      <script async src="src/register_user.js"></script>
-      <script async src="src/auth_check.js"></script>
-    </html>
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+    <!-- Register user functionality -->
+    <script async src="src/register_user.js"></script>
+    <!-- Checks if there is a user signed in -->
+    <script async src="src/auth_check.js"></script>
+  </html>
