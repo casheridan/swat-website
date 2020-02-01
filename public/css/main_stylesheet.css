@@ -112,6 +112,22 @@ body {
   max-width: 100%;
 }
 
+.clickable{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.clickable:hover {
+  box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: invert(30%);
+  cursor: pointer;
+}
+
+.clickable:active {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: invert(50%);
+  cursor: pointer;
+}
+
 h3 {
   font-family: sans-serif;
   font-size: 25px;
