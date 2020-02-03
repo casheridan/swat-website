@@ -31,7 +31,7 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
-// This calculates the total time (time since January 1st, 1979) and puts it to normal time: days, hours, minutes
+// This calculates the total time (time since January 1st, 1970) and puts it to normal time: days, hours, minutes
 function calc(n){
   var num = n;
   var days = (num / 1440);
@@ -199,6 +199,26 @@ function isOnCorrectNetwork(){
   return ((bLocal1 || bLocal2 || bLocal3) && (bPublic1 || bPublic2));
 }
 
+// Checks local time against server time
+function checkedTime(today) {
+  database.child('users').child(userId).child('sTime').set(firebase.database.ServerValue.TIMESTAMP);
+  database.child('users').child(userId).once('value').then(function(snapshot){
+    var time = snapshot.val().sTime;
+    console.log("Server: " + time + " Local: " + today);
+    var checking = time - today;
+    console.log(checking);
+    if (checking < 600 && checking > -600) {
+      console.log("true");
+      database.child("times").child(userId).child("ciTime").set(today);
+      toastr["success"]("Clock In Successful");
+      sendForm("true");
+    } else {
+      console.log("false");
+      toastr["error"]("Local and Server times don't match!");
+    }
+  });
+}
+
 // Does a clock in check and the function
 function _clockIn() {
   toastr["info"]("Clocking In...");
@@ -218,11 +238,9 @@ function _clockIn() {
       toastr["warning"]("You are already clocked in!");
       return;
     }
-    // Sets the Clocked to true and shows a toastr notif
-    var today = new Date();
-    database.child("times").child(userId).child("ciTime").set(today.getTime());
-    toastr["success"]("Clock In Successful");
-    sendForm("true");
+    // Sets the Clocked to true and shows a toastr notif if checked server time is correct
+    var today = new Date().getTime();
+    checkedTime(today);
   }, 3000);
 }
 
