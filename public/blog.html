@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="pictures/Icon.png">
+      <link rel="stylesheet" href="css/main_stylesheet.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
+      <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
+      <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
+      <title>S.W.A.T. 1806 | Blog</title>
+    </head>
+    <body class="h-100">
+
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px" id="btnLogOut" />
+        <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="login.html">Login</a>
+      </div>
+
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">Home</a>
+          <a href="history-page.html">History</a>
+          <a href="awards-page.html">Awards</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="#">Blog</a>
+          <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+          <!-- <a href="newsletters.html">Newsletters</a> -->
+        </div>
+
+        <br><br><br>
+        <div >
+          <div class="col-lg-12">
+            <div class="container text-center" id="container">
+              <div style="width:100%;">
+                <script>
+                  var counter = 0;
+                </script>
+                <div style="position:relative;width:100%;min-height:1px;" id="blogs">
+
+                </div>
+              </div>
+              <script>
+                let firebaseAppDefined = false;
+                setInterval(() => {
+                    if (!firebaseAppDefined) {
+                        /**
+                          * Retrieve and Display Data from Firebase
+                          */
+                          var dbBlogs = firebase.database().ref().child('Blogs').orderByChild("counter");
+
+                        dbBlogs.on('value', function(blogs) {
+                            if(blogs.exists) {
+                                blogs.forEach(function(singleBlog) {
+                                    counter = counter + 1;
+                                    $('#blogs').append(
+                                        "<div class='jumbotron bg-light text-dark border-dark'>" +
+                                            "<div><img width='1000px' height='550' src='" + singleBlog.val().image + "' class='responsive'></div><br>" + 
+                                            "<div class='row'>" +
+                                                "<div class='col-sm-5'>" +
+                                                    "<div class='col-sm-5'><p style='color: grey;'>Published by: " + singleBlog.val().userName + "" + 
+                                                    "</p></div>" +
+                                                    "<div class='col-sm-5'><p style='color: grey;'>Time posted: " + singleBlog.val().time + "" + 
+                                                    "</p></div>" +
+                                                    "<div class='col-sm-5'><p style='color: grey;'>Posted on: " + singleBlog.val().date + "" + 
+                                                    "</p></div>" +
+                                                "</div><br>" +
+                                            "</div><br>" +
+                                            "<div style='text-align: justify; color: black;'>" +
+                                                singleBlog.val().desc + 
+                                            "</div>" +
+                                        "</div>"
+                                    );
+                                });
+                            }
+                        });
+                        firebaseAppDefined = true
+                    }
+                }, 500);
+              </script>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <footer>
+          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+        </footer>
+
+      </body>
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+      </script>
+
+      <script src="src/firebase_config.js"></script>
+      <script src="src/auth_check.js"></script>
+    </html>
