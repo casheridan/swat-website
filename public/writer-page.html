@@ -30,11 +30,11 @@
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
-        <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
-        <a href="blog.html">Blog</a>
+        <a href="history-page.html">History</a>
         <a href="awards-page.html">Awards</a>
         <a href="sponsors.html">Sponsors</a>
-        <a href="history-page.html">History</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
         <!-- <a href="newsletters.html">Newsletters</a> -->
       </div>
 
@@ -106,6 +106,40 @@
                           reader.readAsDataURL(image_blog.files[0]);
                       }
                   }
+
+                    $('.blog-divs').mouseleave(function() {
+                        //return to initial border color
+                    });
+
+                  $(document).on('mouseenter','.blog-divs', function (event) {
+                    $('#' + this.id).css({"border":"2px solid lightgrey","border-radius":"3px"});
+                  }).on('mouseleave','.blog-divs',  function(){
+                    //return to initial border color
+                    $('#' + this.id).css({"border":"2px solid transparent","border-radius":""});
+                  }).on('mouseenter','.blog-divs', function (event) {
+
+                  });
+
+                  
+
+                  function updateBlog(counter, value) {
+                    let descText = $('#' + counter).text();
+                    $('#' + counter).replaceWith("<div id='" + counter + "' class='blog-divs' style='text-align: justify; color: black; border: 2px solid transparent;'><textarea type='text' class='blogtext' autofocus style='width:100%;height:300px;text-align:top;'></textarea></div>");
+                    $('textarea').val(descText);
+                    $('#update-blog-' + counter).click(function() {
+                      let newDesc = $('.blogtext').val();
+                      firebase.database().ref('/Blogs/').child(value).child('desc').set(newDesc).then(function(){
+                        window.location.reload();
+                      });
+                    });
+                   }
+
+                  function deleteBlog(value) {
+                    firebase.database().ref('/Blogs/').child(value).remove().then(function(){
+                        window.location.reload();
+                    });
+                  }
+
 
                   $('#main-image').change(function(){
                       previewImage(this);
@@ -217,7 +251,7 @@
                           dbBlogs.on('value', function(blogs) {
                               if(blogs.exists) {
                                   blogs.forEach(function(singleBlog) {
-                                      counter = counter + 1;
+                                      counter = counter + 1;;
                                       $('#blogs').append(
                                           "<div class='jumbotron bg-light text-dark border-dark'>" +
                                               "<div><img width='1000px' height='550' src='" + singleBlog.val().image + "' class='responsive'></div><br>" + 
@@ -231,9 +265,11 @@
                                                       "</p></div>" +
                                                   "</div><br>" +
                                               "</div><br>" +
-                                              "<div style='text-align: justify; color: black;'>" +
+                                              "<div onclick='updateBlog(" + singleBlog.val().counter + ", \""+singleBlog.key+"\")' style='text-align: justify; color: black; border: 2px solid transparent;' class='blog-divs' id='" + singleBlog.val().counter + "'>" +
                                                   singleBlog.val().desc + 
-                                              "</div>" +
+                                              "</div><br><br>" +
+                                              "<button type='button' class='mybutton' style='width:50%;' id='update-blog-" + singleBlog.val().counter + "'>Update</button><br>" +
+                                              "<button type='button' class='mybutton' style='width:50%;background-color:red;'id='delete-blog-" + singleBlog.val().counter + "' onclick='deleteBlog(\""+singleBlog.key+"\")'>Delete</button>" +
                                           "</div>"
                                       );
                                   });
