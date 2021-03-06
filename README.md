@@ -10,39 +10,14 @@
   * Firebase CLI ``` npm install -g firebase-tools ``` 
   > reference: https://firebase.google.com/docs/cli#windows-npm
 
-## Set Up (Modifying | Contributing | Deployment)
+## Set Up (Modifying)
   1. Download repo ``` git clone [repo url] ```
   2. Login to firebase through terminal ``` firebase login ``` 
   > In able to deploy you will need your google account to be added to the Firebase Console
-
-### Basic procedure to follow when contributing
-  1. Checkout a new branch to make your changes on
-  2. Make changes to code base
-  3. Commit and push changes to branch
-  4. Create Pull Request (PR) in Github
-  5. Do code review, ask for reviewers, etc.
-  6. Squash and Merge into master
-
-### Deploying
-  **Please Be Cautious, this part should be done by someone who is knowledgeable in deploying, as these steps are for pushing changes to _LIVE_ website**
   
-  1. Ensure you are added to Firebase Console
-  2. Make sure there has been testing on changes
-  3. Make sure on machine that you have latest pull from master
-  4. To deploy changes ``` firebase deploy ```
-  5. Wait and ensure website recieved deployment
-
-  **There is still some things that can make the deployment process easier and automated, should be looked into.**
-
-## File Structure
-  
-  * /public - Main directory containing website files
-    - /css - All styling components
-    - /pictures - All photos and images
-      - /pictures/images/_u - Slide Show Images
-    - /src - All backend and .js files
-  
-  
+  3. Follow process | Process can be found in [repo wiki](https://github.com/casheridan/swat-website/wiki/Github-Contributing-Process)
+  4. Follow deployment procedure | Procedure can be found in [repo wiki](https://github.com/casheridan/swat-website/wiki/Deployment)
+  5. Cleanup
 
 ## Built with
  * This was made by scratch in **Github's** IDE **Atom**
