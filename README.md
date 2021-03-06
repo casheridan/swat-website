@@ -15,7 +15,7 @@
   2. Login to firebase through terminal ``` firebase login ``` 
   > In able to deploy you will need your google account to be added to the Firebase Console
   
-  3. Follow process | Process can be found in [the wiki](https://github.com/casheridan/swat-website/wiki/Github-Contributing-Process) and [the contributing file](https://github.com/casheridan/swat-website/blob/master/CONTRIBUTING.md) and 
+  3. Follow process | Process can be found in [the wiki](https://github.com/casheridan/swat-website/wiki/Github-Contributing-Process) and [the contributing file](https://github.com/casheridan/swat-website/blob/master/CONTRIBUTING.md)
   4. Follow deployment procedure | Procedure can be found in [repo wiki](https://github.com/casheridan/swat-website/wiki/Deployment)
   5. Cleanup
 
