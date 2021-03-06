@@ -86,7 +86,7 @@
 
       <br/>
       <footer>
-        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology) </p><p id="version"></p>
       </footer>
 
     </body>
@@ -118,6 +118,10 @@
           $('#passwordbox').hide();
           $('#the-area').append('<p>This website was designed, concepted, and created by Christian Sheridan. This site is also made possible by Firebase</p><a href="https://github.com/casheridan"><img src="pictures/secret.jpg" height="105" width="100" style="margin-right:10px"></a><img src="pictures/firebase-image.png" height="105" width="100">');
         }
+      });
+
+      $.get('https://api.github.com/repos/casheridan/swat-website/releases/latest', function(data){
+        document.getElementById('version').innerHTML = data.tag_name;
       });
     </script>
     <!-- Sidenav functionality -->
