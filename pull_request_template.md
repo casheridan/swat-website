@@ -6,10 +6,10 @@
 
 ## Type of Change
 <!-- Put an 'x' in all of the boxes that apply. -->
-[] Bug Fix (Non-breaking change which resolves an issue)
-[] New Feature/Enhancement (Non-breaking change which add functionality)
-[] Breaking Change (Fix or enhancement that causes existing functionality to change)
-[] Release Activity
+- [ ] Bug Fix (Non-breaking change which resolves an issue)
+- [ ] New Feature/Enhancement (Non-breaking change which add functionality)
+- [ ] Breaking Change (Fix or enhancement that causes existing functionality to change)
+- [ ] Release Activity
 
 ## Screenshots
 <!-- Screenshots go here (if appropriate). -->
