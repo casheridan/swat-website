@@ -1,3 +1,4 @@
+[![Deploy to Live Channel](https://github.com/casheridan/swat-website/actions/workflows/deploy-prod.yml/badge.svg)](https://github.com/casheridan/swat-website/actions/workflows/deploy-prod.yml) [![Deploy to Firebase Hosting on PR](https://github.com/casheridan/swat-website/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)](https://github.com/casheridan/swat-website/actions/workflows/firebase-hosting-pull-request.yml)
 # S.W.A.T. Website
   This is the FRC 1806 S.W.A.T. repository for the official website. This website has the ability to clock in students and 
   track their time data. This also has a newsletter system allowing for super easy updating of timely newsletters.
