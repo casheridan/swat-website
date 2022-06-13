@@ -1,0 +1,15 @@
+.socials {
+    display: flex;
+    flex-direction: column;
+}
+
+.embeds {
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}

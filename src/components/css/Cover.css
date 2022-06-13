@@ -1,0 +1,115 @@
+.cover-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #fff;
+    min-height: 100vh;
+    align-items: flex-end;
+}
+
+.cover-background {
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    user-select: none;
+}
+
+.cover-background > img {
+    border: 0;
+    position: relative;
+    object-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-overlay {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.15;
+}
+
+.content-wrapper {
+    max-width: 1800px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    margin: 0 auto;
+    box-sizing: content-box;
+    justify-content: flex-start;
+    padding-bottom: 3vw;
+    padding-top: 20vmax;
+}
+
+.content {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .content {
+        width: 75%;
+    }
+}
+
+.cont-row {
+    width: auto !important;
+    margin-left: -17px;
+    margin-right: -17px;
+}
+
+.content-table {
+    float: left;
+    width: 100%;
+    padding-right: 0;
+}
+
+.content-block {
+    position: relative;
+    height: auto;
+    padding-top: 17px;
+    clear: none;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-bottom: 17px;
+}
+
+.content-block > h2 {
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -.02em;
+    text-transform: none;
+    line-height: 1.2376;
+    outline: none;
+    margin: 2rem 0;
+    font-family: 'Impact';
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: pre-wrap;
+}
+
+@media screen and (min-width: 0) and (max-width: 1907px) and (orientation: landscape) {
+    .content-block > h2 {
+        font-size: calc((3.9 - 1) * 1.2vw + 1rem);
+    }
+}
+
+@media screen and (min-width: 0) and (max-width: 1907px) and (orientation: portrait){
+    .content-block > h2 {
+        font-size: calc((3.9 - 1) * 1.2vh + 1rem);
+    }
+}

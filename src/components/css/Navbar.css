@@ -1,0 +1,137 @@
+/* Classes */
+
+.fixedbar {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    column-gap: 25px;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    height: 5vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Left Nav */
+
+.logo-link {
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 91.5px;
+    height: 24px;
+    user-select: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+}
+
+.logo:hover {
+    color: lightgrey;
+}
+
+/* This is the sidenav */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.35s;
+    margin-top: 5vh;
+    padding-top: 3vh;
+    z-index: 997;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 25px;
+    color: #808080;
+    display: block;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* End of sidenav */
+
+/* Right Nav */
+
+.right-nav {
+    display: flex;
+    flex-direction: row;
+    column-gap: 25px;
+    margin-left: auto;
+    margin-right: 25px;
+}
+
+.login_pic-nav {
+    z-index: 999;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar-user#navbar-user {
+    z-index: 999;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-user#btnLogOut {
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.modal-background {
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+}

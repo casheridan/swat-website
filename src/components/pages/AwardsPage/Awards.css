@@ -1,0 +1,12 @@
+.banners {
+    margin-top: 5vh;
+    width: 100%;
+    user-select: none;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    justify-content: center;
+    align-items: center;
+}

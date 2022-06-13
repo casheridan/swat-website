@@ -1,0 +1,14 @@
+.iframe-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 47vmin;
+    margin-top: 30px;
+}
+
+.iframe-container iframe{
+    position: absolute;
+    width: 70%;
+    max-width: 85vmin;
+    height: 100%;
+}

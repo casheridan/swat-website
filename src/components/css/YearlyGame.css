@@ -1,0 +1,30 @@
+h1 {
+    color: #000;
+    margin: auto;
+}
+
+.game-section {
+    max-width:100%;
+    text-align:center;
+    /* background-color: #4CAF50; */
+}
+
+.game-img {
+    max-width: 500px;
+    width: 45%;
+    min-width: 245px;
+    margin: auto;
+    visibility: hidden;
+}
+
+.fadeIn {
+    -webkit-animation: animat_show 0.8s;
+    animation: animat_show 0.8s;
+    visibility: visible !important;
+}
+
+@keyframes animat_show{
+    0%{opacity:0}
+    100%{opacity:1}
+    0% {transform: translate(0,100px);}
+}
