@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+# Team 1806 S.W.A.T. Website
 
-You can use the [editor on GitHub](https://github.com/casheridan/swat-website/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## FAQs
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### What are the github pages for?
+These pages are here to share information, best practices, tips and tricks, and resources to the Team 1806 website developers.
 
-### Markdown
+### I'm new... where should I start?
+I would start of course with the "Getting Started" page to see what tools were used to make the site, what languages we use, how to get started making changes, and how to upload these changes.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### What if I already know about *insert item here*. Does it matter?
+Awesome! If you already know about our tech stack (React, Firebase, and Git/GitHub), take a look at the "File Structure" page to make sure you know how our site is laid out. Then check out the "Contributing" and "Best Practices" pages to learn more about how to make changes to the site and the processes we use to update the live site?
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/casheridan/swat-website/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Who should I contact if I have questions?
+Your mentor should be the number one resource, use them. If there is a more specific question that the mentor does not know, contact Christian Sheridan christian.sheridan02@gmail.com, make sure to mention you are from team 1806 and are working on the website.
