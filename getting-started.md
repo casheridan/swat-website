@@ -1,3 +1,11 @@
+---
+layout: default
+title: Getting Started
+nav_order: 2
+description: "This page is to help catch up anyone on how the website is built."
+permalink: /getting-started
+---
+
 # Getting Started
 
 This page is all about how to get started in making changes to the website.
