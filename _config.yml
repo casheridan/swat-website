@@ -1,6 +1,6 @@
 remote_theme: just-the-docs/just-the-docs
 
-title: Team 1806 S.W.A.T. Website
+title: Team 1806 Website
 description: Documentation for the Team 1806 SWAT website
 baseurl: "/swat-website" # the subpath of your site, e.g. /blog
 url: "https://casheridan.github.io" # the base hostname & protocol for your site, e.g. http://example.com
