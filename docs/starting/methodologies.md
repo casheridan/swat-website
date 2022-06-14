@@ -1,14 +1,12 @@
 ---
 layout: default
-title: Getting Started
-nav_order: 2
-description: "This page is to help catch up anyone on how the website is built."
-permalink: /getting-started
+title: Website Methodologies
+parent: Getting Started
 ---
 
-# Getting Started
+# Website Methodologies
 
-This page is all about how to get started in making changes to the website.
+This page is about the two seperate methodologies team 1806 is using for the website.
 
 ## How this thing is built
 
