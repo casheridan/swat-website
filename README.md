@@ -11,14 +11,12 @@
   * Firebase CLI ``` npm install -g firebase-tools ``` 
   > reference: https://firebase.google.com/docs/cli#windows-npm
 
-## Set Up (Modifying)
-  1. Download repo ``` git clone [repo url] ```
+## Make Changes
+  1. Clone the repo ``` git clone [repo url] ```
   2. Login to firebase through terminal ``` firebase login ``` 
-  > In able to deploy you will need your google account to be added to the Firebase Console
-  
-  3. Follow process | Process can be found in [the wiki](https://github.com/casheridan/swat-website/wiki/Contributing-Process) and [the contributing file](https://github.com/casheridan/swat-website/blob/master/CONTRIBUTING.md)
-  4. Follow deployment procedure | Procedure can be found in [repo wiki](https://github.com/casheridan/swat-website/wiki/Deployment)
-  5. Cleanup
+  3. Follow contributing process | Process can be found in [the wiki](https://github.com/casheridan/swat-website/wiki/Contributing-Process), [the contributing file](https://github.com/casheridan/swat-website/blob/master/CONTRIBUTING.md), or [the github page](https://casheridan.github.io/swat-website/docs/deployment/making-changes)
+  4. Follow deployment procedure | Procedure can be found in [repo wiki](https://github.com/casheridan/swat-website/wiki/Deployment), or [github page](https://casheridan.github.io/swat-website/docs/deployment/live-site-deployment)
+  5. Cleanup (if any)
 
 ## Built with
  * This was made by scratch in **Github's** IDE **Atom**
