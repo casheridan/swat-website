@@ -1,9 +1,3 @@
----
-layout: page
-title: "Getting Started"
-permalink: /getting-started/
----
-
 # Getting Started
 
 This page is all about how to get started in making changes to the website.
