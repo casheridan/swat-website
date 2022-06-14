@@ -1,3 +1,11 @@
+---
+layout: default
+title: Home
+nav_order: 1
+description: "This is the home page with some faqs."
+permalink: /
+---
+
 # Team 1806 S.W.A.T. Website
 
 ## FAQs
