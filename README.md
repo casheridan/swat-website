@@ -18,13 +18,14 @@ To get setup with working on this project you will need to download the repo, Gi
 ## Setting Up the Project (React)
 
     Make sure you have everything installed in the Set Up (Installs) section before you continue
+
     1. Clone the repo with git: `git clone https://github.com/casheridan/swat-website.git`
     2. Open cloned repo in Visual Studio Code
     3. Open a terminal in 'Terminal > New Terminal' or `CTRL + SHIFT + \``
     3. Install the required node modules with `npm install` in a terminal in the directory of the project
     4. Start the website with `npm start`
-     - This should build and run the site on a localhost port (usually 5000)
-     - Any changes saved will immediately show up on the localhost site
+     > This should build and run the site on a localhost port (usually 5000)
+     > Any changes saved will immediately show up on the localhost site
 
 ## Make Changes
 
