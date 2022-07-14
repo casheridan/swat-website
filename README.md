@@ -17,21 +17,21 @@ To get setup with working on this project you will need to download the repo, Gi
 
 ## Setting Up the Project (React)
 
-    Make sure you have everything installed in the Set Up (Installs) section before you continue
+Make sure you have everything installed in the Set Up (Installs) section before you continue
 
-    1. Clone the repo with git: `git clone https://github.com/casheridan/swat-website.git`
-    2. Open cloned repo in Visual Studio Code
-    3. Open a terminal in 'Terminal > New Terminal' or `CTRL + SHIFT + \``
-    3. Install the required node modules with `npm install` in a terminal in the directory of the project
-    4. Start the website with `npm start`
-     > This should build and run the site on a localhost port (usually 5000)
-     > Any changes saved will immediately show up on the localhost site
+1. Clone the repo with git: `git clone https://github.com/casheridan/swat-website.git`
+2. Open cloned repo in Visual Studio Code
+3. Open a terminal in 'Terminal > New Terminal' or with the hotkey CTRL + SHIFT + `
+3. Install the required node modules with `npm install` in a terminal in the directory of the project
+4. Start the website with `npm start`
+ > This should build and run the site on a localhost port (usually 5000)
+ > Any changes saved will immediately show up on the localhost site
 
 ## Make Changes
 
 1. Follow the Setting up Project
 2. Login to firebase through terminal `firebase login`
-3. Follow contributing process | Process can be found in [the wiki](https://github.com/casheridan/swat-website/wiki/Contributing-Process), [the contributing file](https://github.com/casheridan/swat-website/blob/master/CONTRIBUTING.md), or [the github page](https://casheridan.github.io/swat-website/docs/deployment/making-changes)
+3. Follow contributing process | Process can be found in [the wiki](https://github.com/casheridan/swat-website/wiki/Contributing-Process) or [the github page](https://casheridan.github.io/swat-website/docs/deployment/making-changes)
 4. Follow deployment procedure | Procedure can be found in [repo wiki](https://github.com/casheridan/swat-website/wiki/Deployment), or [github page](https://casheridan.github.io/swat-website/docs/deployment/live-site-deployment)
 5. Cleanup (if any)
 
