@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+[![Deploy to Live Channel](https://github.com/casheridan/swat-website/actions/workflows/deploy-prod.yml/badge.svg)](https://github.com/casheridan/swat-website/actions/workflows/deploy-prod.yml) [![Deploy to Firebase Hosting on PR](https://github.com/casheridan/swat-website/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)](https://github.com/casheridan/swat-website/actions/workflows/firebase-hosting-pull-request.yml)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# S.W.A.T. Website
 
-## Available Scripts
+This is the FRC 1806 S.W.A.T. repository for the official website. This website has the ability to clock in students and
+track their time data. This also has a newsletter system allowing for super easy updating of timely newsletters.
 
-In the project directory, you can run:
+## Set Up (Installs)
 
-### `npm start`
+To get setup with working on this project you will need to download the repo, Git, Node, and the Firebase CLI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Git: https://git-scm.com/
+- Node: https://nodejs.org/en/
+- Visual Studio Code: https://code.visualstudio.com/download
+- Firebase CLI: `npm install -g firebase-tools`
+  > reference: https://firebase.google.com/docs/cli#windows-npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setting Up the Project (React)
 
-### `npm test`
+    Make sure you have everything installed in the Set Up (Installs) section before you continue
+    1. Clone the repo with git: `git clone https://github.com/casheridan/swat-website.git`
+    2. Open cloned repo in Visual Studio Code
+    3. Open a terminal in 'Terminal > New Terminal' or `CTRL + SHIFT + \``
+    3. Install the required node modules with `npm install` in a terminal in the directory of the project
+    4. Start the website with `npm start`
+     - This should build and run the site on a localhost port (usually 5000)
+     - Any changes saved will immediately show up on the localhost site
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Make Changes
 
-### `npm run build`
+1. Follow the Setting up Project
+2. Login to firebase through terminal `firebase login`
+3. Follow contributing process | Process can be found in [the wiki](https://github.com/casheridan/swat-website/wiki/Contributing-Process), [the contributing file](https://github.com/casheridan/swat-website/blob/master/CONTRIBUTING.md), or [the github page](https://casheridan.github.io/swat-website/docs/deployment/making-changes)
+4. Follow deployment procedure | Procedure can be found in [repo wiki](https://github.com/casheridan/swat-website/wiki/Deployment), or [github page](https://casheridan.github.io/swat-website/docs/deployment/live-site-deployment)
+5. Cleanup (if any)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Frontend: **[React JS](https://reactjs.org/)**
+- Backend API: **[Firebase SDK](https://firebase.google.com/)**
+- Styling: **Cascading Style Sheets(CSS)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Authors
 
-### `npm run eject`
+- **Christian Sheridan** - _concept, design, and programming_ - [Github Profile](https://github.com/casheridan) 2016-2020
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+See also the list of [contributors](https://github.com/casheridan/swat-website/contributors) who participated in this project.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/casheridan/swat-website/blob/master/LICENSE.md) file for details
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Acknowledgments
 
-## Learn More
+- All of this was made possible by Google Firebase
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [FIRST | For Inspiration and Recognition of Science and Technology](https://www.firstinspires.org/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- I got this idea from the fact that we just had paper signing in and the way to get off the books wasn't
+  efficient and we would miss people and or not know how many hours they had put into actually attending robotics.
+  Also we needed to get the name of Team 1806 S.W.A.T. out to the public and a way to give people that support S.W.A.T.
+  and easier way to keep in contact or information.
