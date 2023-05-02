@@ -12,7 +12,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right 0;
+  right: 0;
   width: 100%;
   z-index: 9998;
 }
@@ -312,6 +312,28 @@ input[type=custom] {
 .donatebutton {
   width: 100%;
   background-color: #4CAF50;
+  color: white;
+  padding: 18px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sponsorbutton {
+  width: 100%;
+  background-color: #ffae00;
+  color: white;
+  padding: 18px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Demobutton {
+  width: 100%;
+  background-color: #1310ce;
   color: white;
   padding: 18px 20px;
   margin: 8px 0;
