@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pictures/Icon.png">
+    <link rel="stylesheet" href="css/main_stylesheet.css">
+    <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
+    <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
+    <title>S.W.A.T. 1806 | About Us</title>
+  </head>
+  <body>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <!-- Firebase config file for the console -->
+    <script src="src/firebase_config.js"></script>
+    <!-- Fixednav -->
+    <div class="fixedbar">
+      <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+      <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+      <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+      <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px" id="btnLogOut" />
+      <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+      <a class="login-nav" id="login-nav" href="login.html">Login</a>
+    </div>
+    <!-- Sidenav -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html">Home</a>
+      <a href="history-page.html">History</a>
+      <a href="awards-page.html">Awards</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="blog.html">Blog</a>
+      <a href="registration.html">Registration</a>
+      <a href="#" style="overflow:hidden;white-space: nowrap;">About Us</a>
+      <!-- <a href="newsletters.html">Newsletters</a> -->
+    </div>
+    <h1 style="margin-top:100px;">About Us</h1>
+    <h2 style="font-family:sans-serif;text-align:center;">We are FIRST Robotics Competition Team 1806</h2>
+    <h2 style="font-family:sans-serif;text-align:center;">S.W.A.T. stands for Smithville Warriors Advancing Technology</h2>
+    <br>
+    <h3>Mission Statement:</h3>
+    <p style="text-align:center;margin-top:10px;padding: 0 50px;font-size:20px">
+      Smithville Warriors Advancing Technology (S.W.A.T.) focuses on spreading the ideals of FIRST while promoting individual growth of team members. We have a desire to provide opportunities for students, parents, and community members to take advantage of the possibilities surrounding STEM education and the multitude of FIRST programs. We, first and foremost, wish to inspire a group of passionate students whose purpose is to produce a well-designed, quality-built, competitive robot. Furthermore, it is the goal of Team 1806 to incorporate fields outside of STEM including public communications and marketing in order to make FIRST more accessible to a wider array of students.
+    </p>
+    <br><br>
+    <div style="text-align: center;">
+      <img src="pictures/swat_stamp-black.png" alt="S.W.A.T. Stamp" height="225.75" width="225">
+    </div>
+    <br><br><br>
+    <footer>
+      <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+    </footer>
+  </body>
+  <!-- Sidenav functionality -->
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+  <!-- Checks if signed in -->
+  <script src="src/auth_check.js"></script>
+</html>
