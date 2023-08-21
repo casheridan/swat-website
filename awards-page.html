@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="pictures/Icon.png">
+      <link rel="stylesheet" href="css/main_stylesheet.css">
+      <link rel="stylesheet" href="css/banners.css">
+      <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
+      <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
+      <title>S.W.A.T. 1806 | Awards</title>
+      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    </head>
+    <!-- Styling for the other awards table -->
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        margin: auto;
+      }
+
+      tr {
+        min-width: 45%;
+      }
+
+      td, th {
+        text-align: left;
+        padding: 8px;
+      }
+
+      td {
+        border-top: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    </style>
+    <body>
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+      <!-- Firebase config file for the console -->
+      <script src="src/firebase_config.js"></script>
+      <!-- Fixednav -->
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px" id="btnLogOut" />
+        <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="login.html">Login</a>
+      </div>
+      <!-- Sidenav -->
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="history-page.html">History</a>
+        <a href="#">Awards</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="blog.html">Blog</a>
+        <a href="registration.html">Registration</a>
+        <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+        <!-- <a href="newsletters.html">Newsletters</a> -->
+      </div>
+
+      <br>
+      <br>
+      <h2 style="text-align:center;font-family:sans-serif;font-size:30px">S.W.A.T. Awards</h2>
+      <br>
+      <h4 style="text-align:center;font-family:sans-serif;font-size:20px;">Banners</h4>
+      <!-- Div for Above the fold banners style is from the blue alliance app-->
+      <div class="text-center">
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2018 Oklahoma Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2017 Oklahoma Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2016 Oklahoma Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2015 Oklahoma Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2013 Oklahoma Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2013 Greater Kansas City Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2009 Greater Kansas City Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2008 Oklahoma Regional</span>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="./pictures/first_icon.svg">
+          <div class="award-name">
+            <span>Winner</span>
+          </div>
+          <div class="award-event">
+            <span>2008 Greater Kansas City Regional</span>
+          </div>
+        </div>
+      </div>
+      <h4 style="text-align:center;font-family:sans-serif;font-size:20px;">Other Awards</h4>
+      <!-- Other Awards table -->
+      <div style="width:100%">
+        <table align="center">
+          <tr>
+            <th>Year</th>
+            <th>Event</th>
+            <th>Award(s)</th>
+          </tr>
+          <tr>
+            <td>2019</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2019mokc3">Central Missouri Regional</a></td>
+            <td>
+              Regional Finalists
+            </td>
+          </tr>
+          <tr>
+            <td>2019</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2019mokc">Greater Kansas City Regional</a></td>
+            <td>
+              Regional Finalists<br>
+              Wildcard
+            </td>
+          </tr>
+          <tr>
+            <td>2018</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2018okok">Oklahoma Regional</a></td>
+            <td>
+              Regional Winners<br>
+              Innovation in Control Award sponsored by Rockwell Automation
+            </td>
+          </tr>
+          <tr>
+            <td>2018</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2018mokc2">Heartland Regional</a></td>
+            <td>
+              Regional Finalists<br>
+              Wildcard
+            </td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2017mnmi2">Minnesota North Star Regional</a></td>
+            <td>
+              Gracious Professionalism Award sponsored by Johnson & Johnson
+            </td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2017okok">Oklahoma Regional</a></td>
+            <td>
+              Regional Winners<br>
+              Innovation in Control Award sponsored by Rockwell Automation
+            </td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2016okok">Oklahoma Regional</a></td>
+            <td>
+              Regional Winners<br>
+              Innovation in Control Award sponsored by Rockwell Automation
+            </td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2016mokc">Heartland Regional</a></td>
+            <td>
+              Regional Finalists<br>
+              Innovation in Control Award sponsored by Rockwell Automation
+            </td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2015tes">Tesla Division</a></td>
+            <td>
+              Excellence in Engineering Award sponsored by Delphi
+            </td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2015okok">Oklahoma Regional</a></td>
+            <td>
+              Regional Winners<br>
+              Industrial Design Award sponsored by General Motors
+            </td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2015mokc">Greater Kansas City Regional</a></td>
+            <td>
+              Regional Finalists<br>
+              Innovation in Control Award sponsored by Rockwell Automation
+            </td>
+          </tr>
+          <tr>
+            <td>2014</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2014mokc">Greater Kansas City Regional</a></td>
+            <td>
+              Regional Finalists
+            </td>
+          </tr>
+          <tr>
+            <td>2014</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2014ilil">Central Illinois Regional</a></td>
+            <td>
+              Quality Award sponsored by Motorola
+            </td>
+          </tr>
+          <tr>
+            <td>2013</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2013okok">Oklahoma Regional</a></td>
+            <td>
+              Regional Winners<br>
+            </td>
+          </tr>
+          <tr>
+            <td>2013</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2013mokc">Greater Kansas City Regional</a></td>
+            <td>
+              Regional Winners<br>
+              Judges' Award
+            </td>
+          </tr>
+          <tr>
+            <td>2012</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2012okok">Oklahoma Regional</a></td>
+            <td>
+              Innovation in Control Award sponsored by Rockwell Automation
+            </td>
+          </tr>
+          <tr>
+            <td>2011</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2011mn">Minnesota 10000 Lakes Regional</a></td>
+            <td>
+              FIRST Dean's List Finalist Award (Zachery Martin)<br>
+              Cooperation Award
+            </td>
+          </tr>
+          <tr>
+            <td>2010</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2010mo">St. Louis Regional</a></td>
+            <td>
+              Finalist
+            </td>
+          </tr>
+          <tr>
+            <td>2009</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2009mo">St. Louis Regional</a></td>
+            <td>
+              General Motors Industrial Design Award
+            </td>
+          </tr>
+          <tr>
+            <td>2009</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2009mokc">Greater Kansas City Regional</a></td>
+            <td>
+              Regional Winner<br>
+              General Motors Industrial Design Award
+            </td>
+          </tr>
+          <tr>
+            <td>2008</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2008okok">Oklahoma Regional</a></td>
+            <td>
+              Regional Winner<br>
+              Motorola Quality Award
+            </td>
+          </tr>
+          <tr>
+            <td>2008</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2008mokc">Greater Kansas City Regional</a></td>
+            <td>
+              Regional Winner<br>
+              Johnson & Johnson Gracious Professionalism
+            </td>
+          </tr>
+          <tr>
+            <td>2007</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2007mokc">Greater Kansas City Regional</a></td>
+            <td>
+              Regional Finalist
+            </td>
+          </tr>
+          <tr>
+            <td>2006</td>
+            <td><a target="_new" href="https://www.thebluealliance.com/event/2006il">Midwest Regional</a></td>
+            <td>
+              Rookie Inspiration Award
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <br>
+      <br>
+      <footer>
+        <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+      </footer>
+
+    </body>
+    <!-- Sidenav functionality -->
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+    <!-- Checks if signed in -->
+    <script async src="src/auth_check.js"></script>
+  </html>

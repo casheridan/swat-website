@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="pictures/Icon.png">
+      <link rel="stylesheet" href="css/main_stylesheet.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
+      <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
+      <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
+      <title>S.W.A.T. 1806 | Registration</title>
+    </head>
+    <body class="h-100">
+
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px" id="btnLogOut" />
+        <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="login.html">Login</a>
+      </div>
+
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">Home</a>
+          <a href="history-page.html">History</a>
+          <a href="awards-page.html">Awards</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="blog.html">Blog</a>
+          <a href="#">Registration</a>
+          <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+          <!-- <a href="newsletters.html">Newsletters</a> -->
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <!-- Donate Area -->
+        <h3>Follow the following steps in order to register for team 1806.</h3>
+        <div style="width:40%;margin:50px auto">
+          <button type="button" class="donatebutton" onclick = "alert('A google form will pop up, follow the directions on the form');window.open().location.href = 'https://forms.gle/MJDUZLC8C74adazs5';"><p style="font-size:40px">1. SIGN UP FOR TEAM</p></button>
+        </div>
+        <div style="width:40%;margin:50px auto">
+          <button type="button" class="sponsorbutton" onclick = "alert('A webpage will pop up, register an frc account.');window.open().location.href = 'https://my.firstinspires.org/AccountManager/Account/Register';"><p style="font-size:40px">2. REGISTER IN FIRST ROBOTICS </p></button>
+        </div>
+        <div style="width:40%;margin:50px auto">
+          <button type="button" class="Demobutton" onclick = "alert('A google doc will pop up, read thoroughly');window.open().location.href = 'https://docs.google.com/document/d/1je78p4ZADTx7aYyjeyP4SgrYUObXlefbY4ApI3SzYAI/edit?usp=sharing';"><p style="font-size:40px">3. READ HANDBOOK</p></button>
+        </div>
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+      </script>
+
+      <script src="src/firebase_config.js"></script>
+      <script src="src/auth_check.js"></script>
+    </html>
