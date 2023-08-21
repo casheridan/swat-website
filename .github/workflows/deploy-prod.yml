@@ -4,10 +4,13 @@ name: Deploy to Live Channel
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  release:
+  # Should trigger only when a Pull Request is Closed
+  # (the action will not create the Tag if the Pull Request is discarded - closed without merge)
+  pull_request:
     types:
-      - published
+      - closed
+    branches:
+      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,11 +19,54 @@ on:
 jobs:
   deploy_live_website:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
+      - name: Check PR Tag
+        id: check-title
+        run:
+          if [[ ${{ github.event.pull_request.title }} =~ ^(\d+\.)?(\d+\.)?(\*|\d+)$ ]]; then
+            echo "match=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Extract Tag
+        if: steps.check-title.outputs.match == 'true'
+        id: extract-tag
+        env:
+          PR_TITLE: "${{ github.event.pull_request.title }}"
+        run: |-
+          import os
+          import re
+
+          def extract_tag(_pr_title):
+            regex = r'^(\d+\.)?(\d+\.)?(\*|\d+)$'
+            match = re.search(regex, _pr_title)
+            if match:
+              return match.group()
+            else:
+              return
+  
+          pr_title = os.getenv("PR_TITLE", None)
+          tag = extract_tag(pr_title)
+
+          if tag:
+            print("Tag detected:", tag)
+            print(f"::notice title=Tag detected::The tag {tag} has been detected on the PR title.")
+            set_output("tag", tag)
+          else:
+            print("No tag detected on PR body")
+            print("::notice title=No tag detected::No tag has been detected on the PR body.")
+            
+      - name: Print fetched tag
+        if: steps.check-title.outputs.match == 'true'
+        run: echo "${{ steps.extract-tag.outputs.tag }}"
+      - name: Create Tag
+        if: steps.check-title.outputs.match == 'true'
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          tag: "${{ steps.extract-tag.outputs.tag }}"
       - uses: actions/checkout@v2
-      # Add any build steps here. For example:
-      # - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: steps.check-title.outputs.match == 'true'
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEAM1806_WEBSITE }}"
