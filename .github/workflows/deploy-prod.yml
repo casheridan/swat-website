@@ -25,6 +25,7 @@ jobs:
         id: check-title
         run:
           pr_title = ${{ github.event.pull_request.title }}
+          
           if [[ pr_title =~ ^(\[\d+\.\d+\.\d+\]).+$ ]]; then
             echo "match=true" >> $GITHUB_OUTPUT
           fi
