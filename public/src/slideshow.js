@@ -10,6 +10,7 @@ function plusDivs(n) {
 
 function currentDiv(n) {
   showDivs(slideIndex = n);
+  pauseCarousel();
 }
 
 function showDivs(n) {
@@ -47,21 +48,28 @@ function startCarousel(){
 
 function togglePauseCarousel(){
   if(this.paused){
-    startCarousel();
-    var pauseButtons = document.getElementsByClassName("pausebutton");
-    for (i = 0; i < pauseButtons.length; i++) {
-      pauseButtons[i].innerHTML = "⏸︎";
-    }
-    this.paused = false;
+    unPauseCarousel();
   }
   else{
-    stopCarousel();
-    var pauseButtons = document.getElementsByClassName("pausebutton");
-    for (i = 0; i < pauseButtons.length; i++) {
-      
-      pauseButtons[i].innerHTML = "⏵︎";
-    }
-    this.paused = true;
+    pauseCarousel();
   }
+}
 
+function pauseCarousel(){
+  stopCarousel();
+  var pauseButtons = document.getElementsByClassName("pausebutton");
+  for (i = 0; i < pauseButtons.length; i++) {
+    
+    pauseButtons[i].innerHTML = "⏵︎";
+  }
+  this.paused = true;
+}
+
+function unPauseCarousel(){
+  startCarousel();
+  var pauseButtons = document.getElementsByClassName("pausebutton");
+  for (i = 0; i < pauseButtons.length; i++) {
+    pauseButtons[i].innerHTML = "⏸︎";
+  }
+  this.paused = false;
 }
