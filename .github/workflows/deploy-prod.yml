@@ -24,7 +24,7 @@ jobs:
       - name: Check PR Tag
         id: check-title
         run:
-          if [[ ${{ github.event.pull_request.title }} =~ ^(\d+\.)?(\d+\.)?(\*|\d+)$ ]]; then
+          if [[ ${{ github.event.pull_request.title }} =~ ^(\[\d+\.\d+\.\d+\]).+$ ]]; then
             echo "match=true" >> $GITHUB_OUTPUT
           fi
       - name: Extract Tag
@@ -37,10 +37,10 @@ jobs:
           import re
 
           def extract_tag(_pr_title):
-            regex = r'^(\d+\.)?(\d+\.)?(\*|\d+)$'
+            regex = r"/^(\[\d+\.\d+\.\d+\]).+$/g"
             match = re.search(regex, _pr_title)
             if match:
-              return match.group()
+              return match.group(1)
             else:
               return
   
