@@ -4,21 +4,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" href="pictures/Icon.png">
-      <link rel="stylesheet" href="css/main_stylesheet.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  <!--using w3 to provide sensible defaults and for new slideshow setup-->
+      <link rel="stylesheet" href="css/main_stylesheet.css"> <!--added second to override w3 defaults-->
       <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
       <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
       <title>S.W.A.T. 1806 | Home</title>
-      <link rel="stylesheet" href="css/my-slider.css"/>
+      
       <script src="src/jquery.min.js"></script>
       <script src="src/ism-2.2.min.js"></script>
       <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     </head>
     <style>
-      .infiniterecharge {
-        max-width:45%;
-        margin:auto;
-        visibility: hidden;
-      }
 
       .fadeIn {
           -webkit-animation: animat_show 1s;
@@ -51,84 +47,123 @@
       <!-- Sidenav -->
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="history-page.html">History</a>
         <a href="awards-page.html">Awards</a>
         <a href="sponsors.html">Sponsors</a>
+        <a href="resources.html">Resources</a>
         <a href="blog.html">Blog</a>
-        <a href="registration.html">Registration</a>
+        <a href="register-page.html">Registration</a>
         <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
         <!-- <a href="newsletters.html">Newsletters</a> -->
       </div>
-      <!-- Above the fold image slideshow, pictures are stored in _u folder, to change the view angle (top, middle, or bottom) of the photo please refer to the my-slider.css file -->
-      <div class="ism-slider" data-play_type="loop" id="my-slider">
-        <ol>
-          <li>
-            <img src="pictures/image/slides/_u/2022-GKC.jpg">
-            <div class="ism-caption ism-caption-0">2022 - Greater Kansas City Regional</div>
-          </li>
-          <li>
-            <img src="pictures/image/slides/_u/2019-houston-large.jpg">
-            <div class="ism-caption ism-caption-0">2019 - Houston World Championships | Seniors</div>
-          </li>
-          <li>
-            <img src="pictures/image/slides/_u/2023-Board-Meeting.jpg">
-            <div class="ism-caption ism-caption-0">2023 - Smithville School Board Meeting</div>
-          </li>
-          <li>
-            <img src="pictures/image/slides/_u/2023-Robot-in-progress.jpg">
-            <div class="ism-caption ism-caption-0">2023 - Charged Up Competition Bot</div>
-          </li>
-        </ol>
+      <div class ="swat-slideshow w3-container">
+        <!-- Above the fold image slideshow, pictures are stored in _u folder, to change the view angle (top, middle, or bottom) of the photo please refer to the my-slider.css file -->
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2023-cowtown.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2023 - Cowtown Throwdown</h3></div>
+        </div>
+
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2023-remakelearning.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2023 - Remake Learning Days Smithville</h3></div>
+        </div>
+
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2023-Board-Meeting.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2023 - Smithville School Board Meeting</h3></div>
+        </div>
+
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2023-greencountry.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2023 - Green Country Regional</h3></div>
+        </div>
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2023-heartland.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2023 - Heartland Regional</h3></div>
+        </div>
+
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2023-Robot-in-progress.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2023 - Charged Up Competition Bot</h3></div>
+        </div>
+    
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2022-GKC.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2022 - Greater Kansas City Regional</h3></div>
+        </div>
+
+        <div class="w3-display-container slides">
+          <img src="pictures/image/slides/_u/2019-houston-large.jpg" class="swat-image w3-rounded">
+          <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black"><h3>2019 - Houston World Championships | Seniors</h3></div>
+        </div>
+        <div class="w3-center">
+          <div class="w3-section">
+            <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+            <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+          </div>
+          <button class="w3-button dots" onclick="currentDiv(1)">1</button> 
+          <button class="w3-button dots" onclick="currentDiv(2)">2</button> 
+          <button class="w3-button dots" onclick="currentDiv(3)">3</button>
+          <button class="w3-button dots" onclick="currentDiv(4)">4</button> 
+          <button class="w3-button dots" onclick="currentDiv(5)">5</button> 
+          <button class="w3-button dots" onclick="currentDiv(6)">6</button>  
+          <button class="w3-button dots" onclick="currentDiv(7)">7</button>  
+        </div>
+        <script src="src/slideshow.js"></script>
       </div>
       <br>
-      <h1><a href="registration.html">Sign up here for the 2023-2024 season</a></h1>
-      <h1>Welcome to</h1>
-      <h1>S.W.A.T.</h1>
-      <br>
-      <h3>This years Game...</h3>
-      <!-- <div class="imagediv" style="background-color:#4CAF50"> -->
-        <div class="imagediv" style="background-color:#FFF">
-        <a target="_new" href="https://www.firstinspires.org/robotics/frc/game-and-season">
-          <img src="pictures/CHARGED_UP_Logo_Horiz_RGB_FullColor.png" class="infiniterecharge">
-        </a>
-      </div>
-      <!-- This is the embed for the current years animation video -->
-      <div class="iframe-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/0zpflsYc4PA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <br>
-      <!-- Link to youtube div -->
-      <div style="margin-bottom:10px;">
-        <div class="youtube-container">
-          <div class="cont-left">
-            <a style="text-decoration:none;float:right;margin-right:5px" href="https://www.youtube.com/user/FRC1806">
-              <img src="pictures/swat-youtube.jpg" style="display:inline-block;border-radius:50%" width="80px" height="80px">
+      <div class="frontpageinfo">
+        <br>
+        <h1><a href="registration.html">Sign up here for the 2023-2024 season</a></h1>
+        <h1>Welcome to</h1>
+        <h1>S.W.A.T.</h1>
+        <br>
+        <h3>This years Game...</h3>
+        <!-- <div class="imagediv" style="background-color:#4CAF50"> -->
+          <div class="imagediv" style="background-color:#FFF">
+            <a target="_new" href="https://www.firstinspires.org/sites/default/files/first-in-show/game-and-season/">
+              <img src="https://www.firstinspires.org/sites/default/files/first-in-show/game-and-season/crescendo-logo.svg" class="swat-image">
             </a>
           </div>
-          <div class="cont-right">
-            <a style="text-decoration:none;color:black;" href="https://www.youtube.com/user/FRC1806"><p style="display:inline-block;font-family:'Roboto';font-size:22px">FRC1806</p></a>
+          <!-- This is the embed for the current years animation video -->
+          <!-- Temporary placeholder for game animation video-->
+          <h3>Game Animation Coming Soon! Join us for Kickoff January 6th!</h3>
+          <!-- Restore this once the game animation is out.<div class="iframe-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/LgniEjI9cCM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <br> -->
+        <!-- Link to youtube div -->
+        <div style="margin-bottom:10px;">
+          <div class="youtube-container">
+            <div class="cont-left">
+              <a style="text-decoration:none;float:right;margin-right:5px" href="https://www.youtube.com/user/FRC1806">
+                <img src="pictures/swat-youtube.jpg" style="display:inline-block;border-radius:50%" width="80px" height="80px">
+              </a>
+            </div>
+            <div class="cont-right">
+              <a style="text-decoration:none;color:black;" href="https://www.youtube.com/user/FRC1806"><p style="display:inline-block;font-family:'Roboto';font-size:22px">FRC1806</p></a>
+            </div>
           </div>
         </div>
+  
+        <br>
+        <!-- Embedded Facebook and Twitter script and divs -->
+        <script defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+        <div class="embeds">
+          <div class="embed" id="face">
+            <div class="fb-page" data-href="https://www.facebook.com/swat1806/" data-tabs="timeline" data-width="340" data-height="650" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
+              <blockquote cite="https://www.facebook.com/swat1806/" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/swat1806/">S.W.A.T. Robotics</a>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
       </div>
 
-      <br>
-      <!-- Embedded Facebook and Twitter script and divs -->
-      <script defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
-      <div class="embeds">
-        <div class="embed" id="face">
-          <div class="fb-page" data-href="https://www.facebook.com/swat1806/" data-tabs="timeline" data-width="340" data-height="650" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/swat1806/" class="fb-xfbml-parse-ignore">
-              <a href="https://www.facebook.com/swat1806/">S.W.A.T. Robotics</a>
-            </blockquote>
-          </div>
-        </div>
-        <div class="embed" id="twit">
-          <a class="twitter-timeline" data-width="340" data-height="650" href="https://twitter.com/frc1806?ref_src=twsrc%5Etfw">Tweets by frc1806</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-      </div>
-      <br>
-      <br>
+      
       <footer>
         <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
       </footer>
