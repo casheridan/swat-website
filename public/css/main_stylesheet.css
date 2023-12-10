@@ -12,7 +12,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right 0;
+  right: 0;
   width: 100%;
   z-index: 9998;
 }
@@ -56,8 +56,13 @@ body {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 .pancakes {
@@ -83,8 +88,8 @@ body {
 }
 
 .navbar-user {
-  float:right;
-  margin:8px 15px 0 0;
+  float: right;
+  margin: 8px 15px 0 0;
 }
 
 .login_pic-nav {
@@ -105,7 +110,7 @@ body {
 .logo {
   margin: 11px 0 5px 18px;
   width: 91.5px;
-  height:24px;
+  height: 24px;
 }
 
 .responsive {
@@ -113,7 +118,7 @@ body {
   height: auto;
 }
 
-.clickable{
+.clickable {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -160,17 +165,18 @@ footer {
 }
 
 .imagediv {
-  max-width:100%;
-  text-align:center;
+  max-width: 100%;
+  text-align: center;
 }
 
-.iframe-container{
+.iframe-container {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
   height: 0;
 }
-.iframe-container iframe{
+
+.iframe-container iframe {
   position: absolute;
   top: 15%;
   left: 15%;
@@ -181,7 +187,7 @@ footer {
 .embeds {
   overflow: hidden;
   width: 100%;
-  text-align:center !important;
+  text-align: center !important;
   margin: 50px auto;
 }
 
@@ -231,7 +237,10 @@ footer {
   text-align: center;
 }
 
-input[type=email], input[type=password], [type=text], select {
+input[type=email],
+input[type=password],
+[type=text],
+select {
   width: 100%;
   padding: 12px 50px;
   margin: 8px 0;
@@ -312,6 +321,66 @@ input[type=custom] {
 .donatebutton {
   width: 100%;
   background-color: #4CAF50;
+  color: white;
+  padding: 18px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-section {
+  width: 100%;
+  padding-top: 42px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 42px;
+  align-items: center;
+}
+
+.register-button {
+  width: 300px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .register-button {
+    width: 500px;
+  }
+}
+
+.reg-second {
+  background-color: #FFAE00;
+}
+
+.reg-third {
+  background-color: #1310CE;
+}
+
+.register-button-text {
+  font-size: 1.5rem;
+  margin: 14px;
+}
+
+
+.sponsorbutton {
+  width: 100%;
+  background-color: #ffae00;
+  color: white;
+  padding: 18px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Demobutton {
+  width: 100%;
+  background-color: #1310ce;
   color: white;
   padding: 18px 20px;
   margin: 8px 0;
