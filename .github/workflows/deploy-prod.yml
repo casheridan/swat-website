@@ -24,7 +24,7 @@ jobs:
       - name: Check PR Tag
         id: check-title
         env:
-          TITLE: ${{ github.event.pull_request.title }}
+          TITLE: "${{ github.event.pull_request.title }}"
         run:
           if [[ $TITLE =~ ^(\[\d+\.\d+\.\d+\]).+$ ]]; then
             echo "match=true" >> $GITHUB_OUTPUT
@@ -33,7 +33,7 @@ jobs:
         if: steps.check-title.outputs.match == 'true'
         id: extract-tag
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_TITLE: "${{ github.event.pull_request.title }}"
         run: |-
           import os
           import re
