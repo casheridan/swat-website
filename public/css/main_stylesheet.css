@@ -55,6 +55,30 @@ body {
   margin-left: 50px;
 }
 
+.swat-slideshow {
+  float:left;
+  display:inline;
+  width:100%;
+  background-color: #000;
+  color:#fff;
+}
+
+.swat-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.frontpageinfo {
+  clear: left;
+}
+
+.slides {
+  float:middle;
+  align-self:center;
+  max-width:100%;
+}
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
