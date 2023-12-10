@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="pictures/Icon.png">
+      <link rel="stylesheet" href="css/main_stylesheet.css">
+      <meta name="description" content="Official Site of FRC Team 1806: S.W.A.T.">
+      <meta name="keywords" content="robotics,first robotics,first robotics competition,frc,robot,robots,smithville,kansas city,missouri,smithville high school,smithville school district,smithville warriors,advancing technology,smithville warriors advancing technology,swat,s.w.a.t.,1806,frc 1806,7359,ftc team 7359,7507,ftc team 7507,sponsor,sponsorship opportunity,labconco,community america,community america credit union,cacu,wesco,SHOWTURTLE">
+      <title>S.W.A.T. 1806 | Blank</title>
+    </head>
+    <body>
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="home.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+        <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px" width="30px"></a>
+        <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px" id="btnLogOut" />
+        <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px" width="30px"></a>
+        <a class="login-nav" id="login-nav" href="login.html">Login</a>
+      </div>
+
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="history-page.html">History</a>
+        <a href="awards-page.html">Awards</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="resources.html">Resources</a>
+        <a href="blog.html">Blog</a>
+        <a href="register-page.html">Registration</a>
+        <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+        <!-- <a href="newsletters.html">Newsletters</a> -->
+      </div>
+
+        <h1>Resources</h1>
+
+        <h2>See Current and Previous Event Results</h2>
+        <a href="https://thebluealliance.com/"><p>The Blue Alliance</p></a>
+        <a href="https://frc-events.firstinspires.org/"><p>FIRST Event Web</p></a>
+
+        <h2>General Training Resources(Mostly Teams' Entire Training Suites)</h2>
+        <a href="https://drive.google.com/drive/folders/1JZJlnreqyJaHZKyZtouAvN6F6doAdw4b"><p>Team 1678's Training Resources</p></a>
+        <a href="https://docs.google.com/document/d/e/2PACX-1vQk_ghFBN7682QI_17lbBCx8V_RXNomQRR7er-UIzlllsbdpO4RWOQAVnGFZAEypeNm2grS2G9oxFMp/pub"><p>3847's Training Resources</p></a>
+        <a href="https://www.youtube.com/@smanrobotics/videos"><p>Team 971's Youtube Channel has a lot of talks on various subjects. Some are very advanced.</p></a>
+        <a href="https://www.firstinspires.org/resource-library/frc/technical-resources"><p>FIRST Technical Resources Page</p></a>
+        <a href="https://www.youtube.com/watch?v=Ry-zt5mYMUk&list=PLQjLmjiPahMucwW7h_I0U_LEk1-sbVlOA"><p>Team 1806(That's Us!) Fall 2021 Training Archives</p></a>
+
+        <h2>Maintenence Guides</h2>
+        <a href="maintenance.spectrum3847.org"><p>FRC Maintenance Guide</p></a>
+
+        <h2>CAD Resources</h2>
+        <a href="history-page.html"><p>Our Team History Page has links to recent robot cad</p></a>
+        <a href="https://onshape4frc.com"><p>Onshape 4 FRC- Onshape Setup and Tutorials</p></a>
+
+        <h2>Design Resources</h2>
+        <a href="https://www.theopenalliance.com/"><p>Open Alliance- See what other teams are doing</p></a>
+        <a href="https://www.projectb.net.au/resources/robot-mechanisms/"><p>Unofficial FRC Mechanism Encyclopedia</p></a>
+        <a href="https://www.team254.com/first/"><p>Old Team 254 Robots</p></a>
+        <a href="https://docs.revrobotics.com/docs/"><p>Rev Docs</p></a>
+        <a href="https://www.reca.lc/"><p>ReCalc Design Calculators</p></a>
+        <a href="https://github.com/flybotix/drivetrainsim"><p>iLite Drivetrain Simulator</p></a>
+
+        <h2>Programming Resources</h2>
+        <a href="https://github.com/frc1806"><p>Our Github</p></a>
+        <a href="history-page.html"><p>Our Team History Page has links to recent robot code</p></a>
+
+        <h2>Control System</h2>
+        <a href="https://docs.wpilib.org/en/stable/index.html"><p>WPILib docs</p></a>
+        <a href="https://github.com/wpilibsuite/allwpilib/releases"><p>WPILib Installer Releases</p></a>
+        <a href="https://www.ni.com/en/support/downloads/drivers/download.frc-game-tools.html#479842"><p>FRC Game Tools </p></a>
+        <a href="https://docs.revrobotics.com/docs/"><p>Rev Docs</p></a>
+        <a href="https://v6.docs.ctr-electronics.com/en/stable/"><p>CTRE Phoenix v6 Documentation (Current for 2024)</p></a>
+        <a href="https://drive.google.com/file/d/1b37Y4WL8jSq7NOcDILTP7WCbgsF3gnbo/view"><p> Team 900 Zebraswitch PDF</p></a>
+
+        <h2>Vision</h2>
+        <a href="https://docs.limelightvision.io/docs/docs-limelight/getting-started/summary"><p>Limelight Docs</p></a>
+        <a href="https://docs.photonvision.org/en/latest/"><p>Photonvision Docs</p></a>
+        <a href="https://www.team254.com/documents/vision-control/"><p>Team 254: Integrating Computer Vision with Motion Control</p></a>
+        <a href="https://github.com/FRCTeam1987/Robot2023">FRC 1987 (Broncobots) 2023 code, they were using multiple limelights for apriltags and google corals for game piece tracking.</a>
+
+        <h2>Connector Datasheets/Reference</h2>
+        <a href="https://www.wago.com/us/wire-splicing-connectors/inline-splicing-connector-with-lever/p/221-2401"><p>Wago 221-2401</p></a>
+        <a href="https://www.andersonpower.com/content/dam/app/ecommerce/product-pdfs/SB120/ds-sb120.pdf"><p>SB 120 Datasheet (Big Battery Connector)</p></a>
+        <a href="https://www.andersonpower.com/content/dam/app/ecommerce/product-pdfs/DS-PP1545.pdf"><p>Anderson PP15/45 Datasheet</p></a>
+
+
+        <h2>Parts Suppliers- FRC specific</h2>
+        <a href="https://thethriftybot.com"><p>The Thrifty Bot</p></a>
+        <a href="https://wcproducts.com/"><p>West Coast Products</p></a>
+        <a href="https://revrobotics.com/"><p>Rev Robotics</p></a>
+        <a href="https://andymark.com/"><p>AndyMark</p></a>
+        <a href="https://swyftrobotics.com/"><p>Swyft Robotics</p></a>
+        <a href="https://shop.reduxrobotics.com/"><p>Redux Robotics</p></a>
+
+        <h2>FIRST Media</h2>
+        <a href="https://www.twitch.tv/robosportsnetwork"><p>RoboSportsNetwork Twitch</p></a>
+        <a href="https://linktr.ee/FirstUpdatesNow"><p>FIRST Updates Now</p></a>
+
+     
+        <h2>FRC Social Media (Please Remember Gracious Professonalism, and be safe online.)</h2>
+        <a href="https://www.chiefdelphi.com/"><p>Chief Delphi</p></a>
+        <a href="https://discord.com/invite/frc"><p>FRC Discord</p></a>
+
+        <br/>
+        <br/>
+        <br/>
+        <footer>
+          <p>Smithville High School Robotics | S.W.A.T. (Smithville Warriors Advancing Technology)</p>
+        </footer>
+
+      </body>
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+      </script>
+
+      <script src="src/firebase_config.js"></script>
+      <script src="src/auth_check.js"></script>
+    </html>
