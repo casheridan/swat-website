@@ -1,6 +1,8 @@
 var slideIndex = 1;
+var currentTimeoutId = "none";
+var paused = false;
+
 showDivs(slideIndex);
-setTimeout(carousel, 10000);
 
 function plusDivs(n) {
   showDivs(slideIndex += n);
@@ -8,9 +10,11 @@ function plusDivs(n) {
 
 function currentDiv(n) {
   showDivs(slideIndex = n);
+  pauseCarousel();
 }
 
 function showDivs(n) {
+  stopCarousel();
   var i;
   var x = document.getElementsByClassName("slides");
   var dots = document.getElementsByClassName("dots");
@@ -24,10 +28,48 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " w3-red";
+  startCarousel();
 }
 
 function carousel(){
     plusDivs(1);
-    setTimeout(carousel, 10000);
+}
+
+function stopCarousel(){
+  if (typeof this.currentTimeoutId === "number") {
+    clearTimeout(this.currentTimeoutId)
+    this.currentTimeoutId = "none";
+  }
+}
+
+function startCarousel(){
+  currentTimeoutId= setTimeout(carousel, 10000);
+}
+
+function togglePauseCarousel(){
+  if(this.paused){
+    unPauseCarousel();
+  }
+  else{
+    pauseCarousel();
+  }
+}
+
+function pauseCarousel(){
+  stopCarousel();
+  var pauseButtons = document.getElementsByClassName("pausebutton");
+  for (i = 0; i < pauseButtons.length; i++) {
     
+    pauseButtons[i].innerHTML = "⏵︎";
+  }
+  this.paused = true;
+}
+
+function unPauseCarousel(){
+  startCarousel();
+  var pauseButtons = document.getElementsByClassName("pausebutton");
+  for (i = 0; i < pauseButtons.length; i++) {
+    pauseButtons[i].innerHTML = "⏸︎";
+  }
+  this.paused = false;
 }

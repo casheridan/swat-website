@@ -164,6 +164,12 @@ h3 {
   text-align: center;
 }
 
+h4 {
+  font-family: "Impact", sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
 .logo:hover {
   color: lightgrey;
 }
