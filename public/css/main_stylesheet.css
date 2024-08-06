@@ -58,7 +58,7 @@ body {
 .swat-slideshow {
   float:left;
   display:inline;
-  width:100%;
+  width:75%;
   background-color: #000;
   color:#fff;
 }
@@ -67,7 +67,14 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 33%;
+}
+
+.swat-slide-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }
 
 .frontpageinfo {
@@ -160,7 +167,7 @@ body {
 
 h3 {
   font-family: "Impact", sans-serif;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -176,13 +183,13 @@ h4 {
 
 h1 {
   font-family: "Impact", sans-serif;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
 }
 
 h2 {
   font-family: "Impact", sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
 }
 
@@ -399,7 +406,7 @@ input[type=custom] {
 }
 
 .register-button-text {
-  font-size: 1.5rem;
+  font-size: 1.25em;
   margin: 14px;
 }
 
@@ -417,7 +424,7 @@ input[type=custom] {
 
 .Demobutton {
   width: 100%;
-  background-color: #1310ce;
+  background-color: #006602;
   color: white;
   padding: 18px 20px;
   margin: 8px 0;
