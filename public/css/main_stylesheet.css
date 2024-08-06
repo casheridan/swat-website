@@ -77,6 +77,10 @@ body {
   width: 75%;
 }
 
+.swat-slide-image-caption{
+  font-size: .75em
+}
+
 .frontpageinfo {
   clear: left;
 }
