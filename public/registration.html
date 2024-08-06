@@ -28,51 +28,46 @@
 
 <body class="h-100">
 
-  <div class="fixedbar">
-    <span class="pancakes"
-      style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;"
-      onclick="openNav()">☰</span>
-    <a href="index.html" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
-    <a href="login.html" class="login_pic-nav" id="login_pic-nav"><img src="pictures/login-512.png" height="30px"
-        width="30px"></a>
-    <input class="navbar-user" type="image" src="pictures/account-logout-512.png" height="30px" width="30px"
-      id="btnLogOut" />
-    <a href="user_details.html" class="navbar-user" id="navbar-user"><img src="pictures/user-3-512.png" height="30px"
-        width="30px"></a>
-    <a class="login-nav" id="login-nav" href="login.html">Login</a>
-  </div>
-
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="index.html">Home</a>
-    <a href="history-page.html">History & Robots</a>
-    <a href="awards-page.html">Awards</a>
-    <a href="sponsors.html">Sponsors</a>
-    <a href="demo.html">Request a Demo</a>
-    <a href="resources.html">Resources</a>
-    <a href="blog.html">Blog</a>
-    <a href="registration.html">Registration</a>
-    <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
-    <!-- <a href="newsletters.html">Newsletters</a> -->
-  </div>
+      <!-- Fixednav -->
+      <div class="fixedbar">
+        <span class="pancakes" style="font-size:30px;cursor:pointer;color:white;padding-left:15px;margin-top:2px;float:left;" onclick="openNav()">☰</span>
+        <a href="#" class="navbarthings"><img src="pictures/Logo.png" class="logo"></a>
+      </div>
+      <!-- Sidenav -->
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="history-page.html">History & Robots</a>
+        <a href="awards-page.html">Awards</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="demo.html">Request a Demo</a>
+        <a href="resources.html">Resources</a>
+        <a href="registration.html">Join Our Team</a>
+        <a href="about.html" style="overflow:hidden;white-space: nowrap;">About Us</a>
+        <!-- <a href="newsletters.html">Newsletters</a> -->
+      </div>
 
   <br>
   <br>
   <br>
-  <h3>Follow the following steps in order to register for team 1806.</h3>
+  <h3>Welcome to the S.W.A.T. Team! Complete the following steps to officially join the team!</h3>
   <br>
   <div class="register-section">
     <button class="register-button" onclick="sendTo(1)">
       <p class="register-button-text">1. SIGN UP FOR TEAM</p>
     </button>
-    <button class="register-button reg-second" onclick="sendTo(2)">
-      <p class="register-button-text">2. REGISTER IN FIRST ROBOTICS</p>
-    </button>
     <button class="register-button reg-third" onclick="sendTo(3)">
-      <p class="register-button-text">3. READ HANDBOOK</p>
+      <p class="register-button-text">2. READ HANDBOOK, RETURN THE SIGNED CONTRACT</p>
+    </button>
+    <button class="register-button reg-second" onclick="sendTo(2)">
+      <p class="register-button-text">3. REGISTER FOR FIRST ROBOTICS</p>
     </button>
   </div>
-
+ <br>
+ <br>
+  <h3><a href="https://maps.app.goo.gl/7vU3z25newmDK7qe7">Find Our Shop On Google Maps!</a></h3>
+  <h4>Meetings Schedule TBD, contact Coach Woollums <a href="mailto:WoollumD@smithville.k12.mo.us">WoollumD@smithville.k12.mo.us</a> for meeting information.</h4>
+  <h3><a href="https://join.slack.com/t/frc-1806/signup">Join Our Slack</a> (Requires @smithville.k12.mo.us email)</h3>
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -85,15 +80,15 @@
     function sendTo(step) {
       switch (step) {
         case 1:
-          alert('A google form will pop up, follow the directions on the form');
+          alert('A google form will pop up, follow the directions on the form.');
           window.open().location.href = 'https://forms.gle/MJDUZLC8C74adazs5';
           break;
         case 2:
-          alert('A webpage will pop up, register an frc account.');
+          alert('A webpage will pop up, register with FIRST so you can be in the pits at competitions. If you have any difficulties, contact Coach Woollums.');
           window.open().location.href = 'https://my.firstinspires.org/AccountManager/Account/Register';
           break;
         case 3:
-          alert('A google doc will pop up, read thoroughly');
+          alert('A google doc will pop up, read thoroughly.');
           window.open().location.href = 'https://docs.google.com/document/d/1je78p4ZADTx7aYyjeyP4SgrYUObXlefbY4ApI3SzYAI/edit?usp=sharing';
           break;
         default:
