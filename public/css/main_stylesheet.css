@@ -239,6 +239,15 @@ footer {
   margin: 50px auto;
 }
 
+.pdfembed {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  text-align: center !important;
+  margin: 50px auto;
+}
+
+
 .embed {
   width: fit-content;
   display: inline-block;
